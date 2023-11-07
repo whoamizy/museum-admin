@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom"
 import { AppLinks } from "shared/enums"
 import { useAuth } from "shared/providers"
 import { LoginForm } from "widgets/login-form"
+import styles from './styles.module.scss'
+import museumPreview from '../../../../public/images/museum-preview.png'
 
 export const LoginPage = () => {
   const { user } = useAuth()
@@ -15,6 +17,13 @@ export const LoginPage = () => {
   }, [navigate, user])
 
   return (
-    <LoginForm />
+    <div className={styles.wrapper}>
+      <div className={styles.formWrapper}>
+        <LoginForm />
+      </div>
+      <div className={styles.imageWrapper}>
+        <img className={styles.image} src={museumPreview} alt="музей" />
+      </div>
+    </div>
   )
 }

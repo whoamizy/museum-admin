@@ -4,5 +4,12 @@ export const ru = {
   },
   form: {
     error: "Ошибка"
+  },
+  login: {
+    title: "Вход",
+    email: "E-mail",
+    emailPlaceholder: "Введите e-mail",
+    password: "Пароль",
+    passwordPlaceholder: "Введите пароль",
   }
 }

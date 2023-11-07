@@ -1,0 +1,63 @@
+// TextField
+body .TextField-InputContainer {
+  border: 1px solid var(--color-light-grey);
+}
+
+body .TextField-Body input,
+body .TextField-Body textarea {
+  caret-color: currentColor;
+  font-size: var(--size-text-m);
+}
+
+body .TextField-Body .TextField-Input::placeholder {
+  color: var(--color-light-medium);
+  font-weight: 500;
+}
+
+body .TextField-InputContainer_view_default:hover {
+  border-color: var(--color-control-bg-border-default-hover);
+}
+
+body .TextField-InputContainer_focus {
+  border-color: var(--color-control-bg-border-default-hover) !important;
+}
+
+body .TextField-Body {
+  .TextField-Caption {
+    position: absolute;
+    top: 100%;
+    margin-left: 20px;
+    color: var(--color-red-dark);
+    font-size: 12px;
+    font-weight: 500;
+  }
+}
+
+body .TextField-InputContainer_status_alert {
+  border: 1px solid var(--color-red-dark);
+  background-color: var(--color-red-light);
+
+  .TextField-Icon {
+    color: var(--color-typo-alert);
+  }
+
+  .TextField-Input {
+    --color-control-typo-placeholder: var(--color-typo-alert);
+
+    color: var(--color-red-dark);
+
+    &::placeholder {
+      color: var(--color-red-dark);
+    }
+  }
+}
+
+// Button
+body button.Button_view_primary[data-status='primary'] {
+  background-color: var(--color-red-dark);
+
+  &:hover {
+    background-color: var(--color-red-dark) !important;
+    opacity: 0.8;
+  }
+}

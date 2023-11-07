@@ -8,8 +8,8 @@ import { AppLinks, PersistData } from "shared/enums"
 import { useNavigate } from "react-router-dom"
 
 const initialValues: LoginPayload = {
-  email: "admin@mail.ru",
-  password: "adminadmin"
+  email: "",
+  password: ""
 }
 
 export const LoginForm = () => {
