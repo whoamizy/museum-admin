@@ -7,6 +7,7 @@ import { env } from 'shared/utils'
 import { queryClient } from 'shared/providers'
 import { AppLinks, PersistData } from 'shared/enums'
 import { redirect } from 'react-router-dom'
+import i18n from 'shared/i18n'
 
 export const api = axios.create({
   headers: {
@@ -39,7 +40,7 @@ api.interceptors.response.use(undefined, (err) => {
   }
 
   if (shouldShowToast) {
-    toast.error("")
+    toast.error(i18n.t('server.error'))
 
     return Promise.reject(err)
   }
