@@ -1,4 +1,4 @@
-import { type AxiosRequestConfig } from 'axios'
+import { AxiosRequestConfig } from 'axios'
 
 import { api } from '../axios'
 

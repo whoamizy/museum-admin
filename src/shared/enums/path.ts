@@ -1,3 +1,4 @@
 export enum Path {
-  LOGIN = "/auth/login"
+  LOGIN = "/auth/login",
+  ME = "/users/me"
 }
