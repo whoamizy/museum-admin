@@ -1,0 +1,14 @@
+@use "sass:meta";
+@use "./colors.scss" as colors;
+
+$colors: meta.module-variables("colors");
+
+@mixin add-css-variables($module) {
+  @each $name, $value in $module {
+    --#{$name}: #{$value};
+  }
+}
+
+.Theme_color_theme {
+  @include add-css-variables($colors);
+}
