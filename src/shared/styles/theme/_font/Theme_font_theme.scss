@@ -1,0 +1,6 @@
+@import './fonts';
+
+.Theme_font_theme {
+  --font-primary: 'Montserrat', sans-serif;
+  font-family: var(--font-primary);
+}

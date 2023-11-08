@@ -1,0 +1,37 @@
+@use 'sass:color';
+
+$color-base-base: #101010;
+$color-base-essential: #fff;
+$color-base-project: #0071b2;
+$color-base-phantom: #E3A19C;
+$color-base-path: #AB322A;
+$color-base-system: #fff;
+$color-base-shadow: rgb(0, 32, 51);
+$color-base-alert: #ff0039;
+
+$color-white: #fff;
+$color-red-dark: #AB322A;
+$color-red-medium: #E3A19C;
+$color-light-grey: #F3EFEF;
+$color-light-medium: #BABABA;
+
+// BG
+$bg-white: #fff;
+
+// Primary
+$color-control-bg-primary: rgba($color-base-path, 1);
+$color-control-bg-primary-hover: color.adjust($color-base-path, $lightness: -8%);
+$color-control-typo-primary: color.adjust($color-base-base, $lightness: 100%);
+$color-control-typo-primary-hover: color.adjust($color-base-path, $lightness: 100%);
+$color-control-typo-primary-focus: color.adjust($color-base-path, $lightness: 100%);
+
+// Disabled
+$color-control-bg-disable: rgba(0, 66, 105, 7%);
+$color-control-bg-border-disable: rgba(0, 66, 105, 0%);
+$color-control-typo-disable: rgba(0, 32, 51, 26%);
+
+// Hover
+$color-control-bg-border-default-hover: rgba($color-base-phantom, 0.52);
+
+// Error
+$color-typo-alert: $color-base-alert;
