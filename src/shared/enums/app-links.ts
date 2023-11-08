@@ -1,4 +1,8 @@
 export enum AppLinks {
-  HOME = "/",
-  LOGIN = "/login"
+  LOGIN = "/login",
+  USERS = "/users",
+  NEWS = "/news",
+  COLLECTIONS = "/collections",
+  EXHIBITIONS = "/exhibitions",
+  TICKETS = "/tickets"
 }

@@ -25,7 +25,7 @@ export const LoginForm = () => {
           secure: true,
           expires: 7,
         })
-        navigate(AppLinks.HOME, { replace: true })
+        navigate(AppLinks.USERS, { replace: true })
       },
       onSettled: () => {
         helpers.setSubmitting(false)

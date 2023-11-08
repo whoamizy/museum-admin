@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useLayoutEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { AppLinks } from "shared/enums"
 import { useAuth } from "shared/providers"
@@ -10,9 +10,9 @@ export const LoginPage = () => {
   const { user } = useAuth()
   const navigate = useNavigate()
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (user) {
-      navigate(AppLinks.HOME, { replace: true })
+      navigate(AppLinks.USERS, { replace: true })
     }
   }, [navigate, user])
 
