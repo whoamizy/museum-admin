@@ -6,6 +6,7 @@ import { useLoginMutation } from "shared/api"
 import Cookies from 'js-cookie'
 import { AppLinks, PersistData } from "shared/enums"
 import { useNavigate } from "react-router-dom"
+import { useTranslation } from "react-i18next"
 
 const initialValues: LoginPayload = {
   email: "",
@@ -15,6 +16,7 @@ const initialValues: LoginPayload = {
 export const LoginForm = () => {
   const navigate = useNavigate()
   const { mutateAsync: login } = useLoginMutation()
+  const { t } = useTranslation()
 
   const onSubmit: FormikSubmit<LoginPayload> = (values, helpers) => {
     login(values, {
@@ -28,6 +30,12 @@ export const LoginForm = () => {
       onSettled: () => {
         helpers.setSubmitting(false)
       },
+      onError: () => {
+        helpers.setFieldTouched('email', true, false)
+        helpers.setFieldTouched('password', true, false)
+        helpers.setFieldError('email', t('login.invalidEmailOrPassword'))
+        helpers.setFieldError('password', t('login.invalidEmailOrPassword'))
+      }
     })
   }
 

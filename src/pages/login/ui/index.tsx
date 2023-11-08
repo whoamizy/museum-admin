@@ -4,7 +4,7 @@ import { AppLinks } from "shared/enums"
 import { useAuth } from "shared/providers"
 import { LoginForm } from "widgets/login-form"
 import styles from './styles.module.scss'
-import museumPreview from '../../../../public/images/museum-preview.png'
+import museumPreview from 'shared/assets/images/museum-preview.png'
 
 export const LoginPage = () => {
   const { user } = useAuth()
