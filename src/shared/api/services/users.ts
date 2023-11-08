@@ -10,4 +10,13 @@ export class UsersService extends BaseService {
 
     return data
   }
+
+  public static async delete(id: string) {
+    const { data } = await this.fetch<User>({
+      url: `${Path.USERS}/${id}`,
+      method: 'DELETE',
+    })
+
+    return data
+  }
 }

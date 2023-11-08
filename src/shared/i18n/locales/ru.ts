@@ -29,7 +29,9 @@ export const ru = {
     search: "Поиск по пользователям",
     title: "Пользователи",
     name: "Имя",
-    email: "E-mail"
+    email: "E-mail",
+    successDelete: "Пользователь успешно удален",
+    errorDelete: "Не удалось удалить пользователя"
   },
   errors: {
     required: "Обязательное поле",

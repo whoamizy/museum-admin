@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery } from '@tanstack/react-query'
 import { UsersService } from '../services'
 
 export const useGetAllUsers = () => {
@@ -7,3 +7,6 @@ export const useGetAllUsers = () => {
     queryFn: () => UsersService.getAllUsers(),
   })
 }
+
+export const useDeleteUser = () =>
+  useMutation({ mutationFn: (id: string) => UsersService.delete(id) })
