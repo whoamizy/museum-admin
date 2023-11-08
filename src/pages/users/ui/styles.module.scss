@@ -3,3 +3,60 @@
   flex-direction: column;
   height: 100%;
 }
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.topLine {
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  background: var(--color-red-light);
+  padding: 12px;
+}
+
+.topLineCategory {
+  flex: 0 0 33.3%;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-red-dark);
+}
+
+.users {
+  overflow-y: auto;
+}
+
+.line {
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  background: var(--color-extra-light-grey);
+  padding: 12px;
+}
+
+.lineCategory {
+  flex: 0 0 33.3%;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.delete {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  width: 32px;
+  height: 32px;
+  border-radius: 12px;
+  color: var(--color-red-dark);
+  background-color: var(--color-red-light);
+}
