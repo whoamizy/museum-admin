@@ -1,4 +1,14 @@
 export const ru = {
+  general: {
+    exit: "выйти"
+  },
+  pages: {
+    users: "Пользователи",
+    news: "Новости",
+    collections: "Коллекции",
+    exhibitions: "Выставки",
+    tickets: "Билеты"
+  },
   server: {
     error: "Что-то пошло не так!"
   },

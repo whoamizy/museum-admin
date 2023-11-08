@@ -1,8 +1,9 @@
 .wrapper {
+  min-height: 100vh;
   display: flex;
 }
 
 .pageWrapper {
   flex-grow: 1;
-  padding: 20px;
+  margin-left: 20px;
 }
