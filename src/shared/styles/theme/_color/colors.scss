@@ -18,7 +18,9 @@ $color-red-medium: #E3A19C;
 $color-red-light: #F3DEDE;
 $color-light-grey: #F3EFEF;
 $color-extra-light-grey: #F7F7F7;
-$color-light-medium: #BABABA;
+$color-grey-medium: #BABABA;
+$color-green-dark: #94A75F;
+$color-green-medium: #E0E8CB;
 
 // BG
 $bg-white: #fff;
@@ -42,6 +44,6 @@ $color-control-bg-border-default-hover: rgba($color-base-phantom, 0.52);
 $color-typo-alert: $color-base-alert;
 
 // SCROLLBAR
-$color-scroll-bg: $color-light-medium;
+$color-scroll-bg: $color-grey-medium;
 $color-scroll-thumb: $color-red-medium;
 $color-scroll-thumb-hover: $color-red-dark;

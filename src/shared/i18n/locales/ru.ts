@@ -33,6 +33,14 @@ export const ru = {
     successDelete: "Пользователь успешно удален",
     errorDelete: "Не удалось удалить пользователя"
   },
+  news: {
+    search: "Поиск по новостям",
+    title: "Новости",
+    preview: "Изображение",
+    itemTitle: "Заголовок",
+    successDelete: "Новость успешно удалена",
+    errorDelete: "Не удалось удалить новость"
+  },
   errors: {
     required: "Обязательное поле",
     invalidEmail: "Некорректный e-mail",
