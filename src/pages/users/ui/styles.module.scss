@@ -1,7 +1,7 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: calc(100vh - 40px);
 }
 
 .title {
@@ -25,16 +25,13 @@
   color: var(--color-red-dark);
 }
 
-.users {
-  overflow-y: auto;
-}
-
 .line {
   display: flex;
   align-items: center;
   border-radius: 8px;
   background: var(--color-extra-light-grey);
   padding: 12px;
+  margin-top: 2px;
 }
 
 .lineCategory {

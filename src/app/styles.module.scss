@@ -1,9 +1,11 @@
 .wrapper {
-  min-height: 100vh;
-  display: flex;
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 320px minmax(0, 1fr);
+  overflow-y: hidden;
+  padding: 20px;
 }
 
 .pageWrapper {
-  flex-grow: 1;
-  padding: 20px;
+  padding-left: 20px;
 }

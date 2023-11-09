@@ -34,30 +34,29 @@ export const UsersPage = () => {
         setValue={setSearchValue}
         placeholder={t('users.search')}
       />
-      <ContentPlate>
-        <h1 className={styles.title}>{t('users.title')}</h1>
-        <div className={styles.topLine}>
-          <div className={styles.topLineCategory}>
-            {t('users.name')}
-          </div>
-          <div className={styles.topLineCategory}>
-            {t('users.email')}
-          </div>
-          <div className={styles.topLineCategory}></div>
+
+      <h1 className={styles.title}>{t('users.title')}</h1>
+      <div className={styles.topLine}>
+        <div className={styles.topLineCategory}>
+          {t('users.name')}
         </div>
+        <div className={styles.topLineCategory}>
+          {t('users.email')}
+        </div>
+        <div className={styles.topLineCategory}></div>
+      </div>
+      <ContentPlate>
         {isLoading && <ContentLoader />}
         {!!filteredUsers &&
           <>
             {filteredUsers.length === 0 && <NotFound />}
-            <div className={styles.users}>
-              <ul>
-                {filteredUsers.map((user) =>
-                  <li key={user._id}>
-                    <UsersItem {...user} />
-                  </li>
-                )}
-              </ul>
-            </div>
+            <ul>
+              {filteredUsers.map((user) =>
+                <li key={user._id}>
+                  <UsersItem {...user} />
+                </li>
+              )}
+            </ul>
           </>
         }
       </ContentPlate>
