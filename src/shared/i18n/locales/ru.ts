@@ -1,6 +1,8 @@
 export const ru = {
   general: {
-    exit: "выйти"
+    exit: "выйти",
+    greeting: "Здравствуйте, {{name}}!",
+    notFound: "Ничего не найдено"
   },
   pages: {
     users: "Пользователи",
@@ -22,6 +24,14 @@ export const ru = {
     password: "Пароль",
     passwordPlaceholder: "Введите пароль",
     invalidEmailOrPassword: "Неверный email и/или пароль"
+  },
+  users: {
+    search: "Поиск по пользователям",
+    title: "Пользователи",
+    name: "Имя",
+    email: "E-mail",
+    successDelete: "Пользователь успешно удален",
+    errorDelete: "Не удалось удалить пользователя"
   },
   errors: {
     required: "Обязательное поле",

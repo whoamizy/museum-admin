@@ -1,6 +1,11 @@
 // TextField
 body .TextField-InputContainer {
   border: 1px solid var(--color-light-grey);
+  background: var(--color-white);
+}
+
+body .TextField-ClearButton {
+  color: currentColor;
 }
 
 body .TextField-Body input,

@@ -1,0 +1,8 @@
+.contentPlate {
+  border-radius: 8px;
+  background-color: var(--color-white-100);
+  border: 1px solid var(--color-black-16);
+  overflow: auto;
+  width: 100%;
+  flex-grow: 1;
+}
