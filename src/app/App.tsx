@@ -1,14 +1,17 @@
 import { Router } from "pages"
-import { useAuth } from "shared/providers"
 import { Sidebar } from "widgets/sidebar"
 import styles from './styles.module.scss'
+import { useLocation } from "react-router-dom"
+import { AppLinks } from "shared/enums"
 
 export const App = () => {
-  const { user } = useAuth()
+  const { pathname } = useLocation()
+
+  const isSidebarVisible = pathname !== AppLinks.LOGIN
 
   return (
     <div className={styles.wrapper}>
-      {!!user && <Sidebar />}
+      {isSidebarVisible && <Sidebar />}
       <div className={styles.pageWrapper}>
         <Router />
       </div>
