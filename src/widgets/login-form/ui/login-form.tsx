@@ -3,7 +3,6 @@ import { LoginPayload, LoginSuccess, loginSchema } from "../lib"
 import { FormikSubmit } from "shared/types"
 import { LoginFormView } from "./login-form-view"
 import { useLoginMutation } from "shared/api"
-import Cookies from 'js-cookie'
 import { AppLinks, PersistData } from "shared/enums"
 import { useNavigate } from "react-router-dom"
 import { useTranslation } from "react-i18next"
@@ -21,10 +20,7 @@ export const LoginForm = () => {
   const onSubmit: FormikSubmit<LoginPayload> = (values, helpers) => {
     login(values, {
       onSuccess: (data: LoginSuccess) => {
-        Cookies.set(PersistData.TOKEN, data.token, {
-          secure: true,
-          expires: 7,
-        })
+        localStorage.setItem(PersistData.TOKEN, data.token)
         navigate(AppLinks.USERS, { replace: true })
       },
       onSettled: () => {

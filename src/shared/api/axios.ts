@@ -1,6 +1,5 @@
 import { toast } from 'react-toastify'
 import axios, { AxiosError } from 'axios'
-import Cookies from 'js-cookie'
 import isEmpty from 'lodash/isEmpty'
 
 import { env } from 'shared/utils'
@@ -17,7 +16,7 @@ export const api = axios.create({
 })
 
 api.interceptors.request.use((config) => {
-  const token = Cookies.get(PersistData.TOKEN)
+  const token = localStorage.getItem(PersistData.TOKEN)
 
   if (token && config.headers) {
     config.headers['Authorization'] = `Bearer ${token}`
@@ -32,7 +31,7 @@ api.interceptors.response.use(undefined, (err) => {
   const shouldShowToast = true
 
   if (response?.status === 401) {
-    Cookies.remove(PersistData.TOKEN)
+    localStorage.removeItem(PersistData.TOKEN)
     redirect(AppLinks.LOGIN)
     queryClient.clear()
 

@@ -2,7 +2,6 @@ import { useQueryClient } from "@tanstack/react-query"
 import { User } from "entities/user"
 import { noop } from "lodash"
 import { PropsWithChildren, createContext, useCallback, useContext, useEffect, useMemo } from "react"
-import Cookies from 'js-cookie'
 import { AppLinks, PersistData } from "shared/enums"
 import { useNavigate } from "react-router-dom"
 import { useGetMe } from "shared/api"
@@ -31,7 +30,7 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }: PropsWithChildren) => {
   const queryClient = useQueryClient()
-  const token = Cookies.get(PersistData.TOKEN)
+  const token = localStorage.getItem(PersistData.TOKEN)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -45,7 +44,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
   }, [navigate, queryClient, token])
 
   const logout = useCallback(() => {
-    Cookies.remove(PersistData.TOKEN)
+    localStorage.removeItem(PersistData.TOKEN)
     queryClient.clear()
     navigate(AppLinks.LOGIN, { replace: true })
   }, [navigate, queryClient])
