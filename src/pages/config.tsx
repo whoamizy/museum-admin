@@ -15,6 +15,10 @@ export interface Route {
 
 export const routes: Route[] = [
   {
+    path: AppLinks.ROOT,
+    element: <LoginPage />
+  },
+  {
     path: AppLinks.LOGIN,
     element: <LoginPage />
   },

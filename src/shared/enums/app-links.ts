@@ -1,4 +1,5 @@
 export enum AppLinks {
+  ROOT = "/",
   LOGIN = "/login",
   USERS = "/users",
   NEWS = "/news",
