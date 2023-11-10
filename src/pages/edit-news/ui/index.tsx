@@ -3,7 +3,8 @@ import { NewsItemForm } from "widgets/news-item-form"
 import { NewsItemPayload } from "widgets/news-item-form/lib"
 
 
-export const AddNewsPage = () => {
+
+export const EditNewsPage = () => {
   const initialValues: NewsItemPayload = {
     imageId: "",
     title: "",

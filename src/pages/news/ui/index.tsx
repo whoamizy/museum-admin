@@ -33,7 +33,7 @@ export const NewsPage = () => {
   }, [filterVariantsHandler])
 
   const navigateToNew = () => {
-    navigate(AppLinks.NEWS_NEW)
+    navigate(AppLinks.ADD_NEWS)
   }
 
   return (

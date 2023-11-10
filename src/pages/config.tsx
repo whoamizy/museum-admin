@@ -6,6 +6,7 @@ import { CollectionsPage } from "./collections"
 import { ExhibitionsPage } from "./exhibitions"
 import { TicketsPage } from "./tickets"
 import { AddNewsPage } from "./add-news"
+import { EditNewsPage } from "./edit-news"
 
 export interface Route {
   path: AppLinks
@@ -38,7 +39,11 @@ export const routes: Route[] = [
     element: <TicketsPage />
   },
   {
-    path: AppLinks.NEWS_NEW,
+    path: AppLinks.ADD_NEWS,
     element: <AddNewsPage />
+  },
+  {
+    path: AppLinks.EDIT_NEWS,
+    element: <EditNewsPage />
   },
 ]

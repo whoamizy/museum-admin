@@ -8,13 +8,11 @@ import { AppLinks } from "shared/enums"
 import { useTranslation } from "react-i18next"
 import { toast } from 'react-toastify'
 
-const initialValues: NewsItemPayload = {
-  imageId: "",
-  title: "",
-  link: ""
+interface Props {
+  initialValues: NewsItemPayload
 }
 
-export const NewsItemForm = () => {
+export const NewsItemForm = ({ initialValues }: Props) => {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const { mutateAsync: create } = useCreateNews()

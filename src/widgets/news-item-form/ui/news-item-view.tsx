@@ -85,7 +85,7 @@ export const NewsItemView = (
             >
               {({ openFileDialog }) => (
                 <>
-                  <div>
+                  <div className={styles.imageDescription}>
                     {t('news.form.pickImageDescription')}
                   </div>
                   <br />

@@ -1,5 +1,5 @@
 import { NewsItem as NewsItemType } from "entities/news"
-import { Path } from "shared/enums"
+import { AppLinks, Path } from "shared/enums"
 import { env } from "shared/utils"
 import styles from './styles.module.scss'
 import cn from "classnames"
@@ -8,11 +8,13 @@ import { useTranslation } from "react-i18next"
 import { useDeleteNewsItem } from "shared/api"
 import { toast } from "react-toastify"
 import { queryClient } from "shared/providers"
+import { useNavigate } from "react-router-dom"
 
 export const NewsItem = ({ _id, imageId, title }: NewsItemType) => {
   const imageUrl = `${env.apiUrl}${Path.GET_IMAGE}${imageId}`
   const { t } = useTranslation()
   const { mutateAsync: deleteNewsItem } = useDeleteNewsItem()
+  const navigate = useNavigate()
 
   const deleteHandler = async () => {
     await deleteNewsItem(_id, {
@@ -26,6 +28,10 @@ export const NewsItem = ({ _id, imageId, title }: NewsItemType) => {
     })
   }
 
+  const navigateToEdit = () => {
+    navigate(`${AppLinks.NEWS}/${_id}`)
+  }
+
   return (
     <div className={styles.line}>
       <div className={cn(styles.lineCategory, styles.preview)}>
@@ -37,7 +43,7 @@ export const NewsItem = ({ _id, imageId, title }: NewsItemType) => {
         {title}
       </div>
       <div className={cn(styles.lineCategory, styles.actions)}>
-        <div className={styles.edit}>
+        <div className={styles.edit} onClick={navigateToEdit}>
           <EditIcon />
         </div>
         <div className={styles.delete} onClick={deleteHandler}>
