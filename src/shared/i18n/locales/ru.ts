@@ -39,7 +39,8 @@ export const ru = {
     preview: "Изображение",
     itemTitle: "Заголовок",
     successDelete: "Новость успешно удалена",
-    errorDelete: "Не удалось удалить новость"
+    errorDelete: "Не удалось удалить новость",
+    addNew: "Создать новость"
   },
   errors: {
     required: "Обязательное поле",

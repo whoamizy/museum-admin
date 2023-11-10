@@ -34,8 +34,9 @@ export const UsersPage = () => {
         setValue={setSearchValue}
         placeholder={t('users.search')}
       />
-
-      <h1 className={styles.title}>{t('users.title')}</h1>
+      <div className={styles.infoLine}>
+        <h1 className={styles.title}>{t('users.title')}</h1>
+      </div>
       <div className={styles.topLine}>
         <div className={styles.topLineCategory}>
           {t('users.name')}
