@@ -14,7 +14,7 @@ import { Path } from "shared/enums"
 import { DeleteIcon } from "shared/assets/icons"
 import cn from 'classnames'
 
-export const NewsItemView = (
+export const AddNewsView = (
   {
     values,
     errors,

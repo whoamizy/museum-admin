@@ -1,18 +1,20 @@
 import { Formik } from "formik"
 import { NewsItemPayload, newsItemSchema } from "../lib"
 import { FormikSubmit } from "shared/types"
-import { NewsItemView } from "./news-item-view"
+import { AddNewsView } from "./add-news-view"
 import { useNavigate } from "react-router-dom"
 import { useCreateNews } from "shared/api"
 import { AppLinks } from "shared/enums"
 import { useTranslation } from "react-i18next"
 import { toast } from 'react-toastify'
 
-interface Props {
-  initialValues: NewsItemPayload
+const initialValues: NewsItemPayload = {
+  imageId: "",
+  title: "",
+  link: ""
 }
 
-export const NewsItemForm = ({ initialValues }: Props) => {
+export const AddNewsForm = () => {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const { mutateAsync: create } = useCreateNews()
@@ -37,7 +39,7 @@ export const NewsItemForm = ({ initialValues }: Props) => {
       initialValues={initialValues}
       onSubmit={onSubmit}
       validationSchema={newsItemSchema}
-      component={NewsItemView}
+      component={AddNewsView}
     />
   )
 }
