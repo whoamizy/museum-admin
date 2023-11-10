@@ -15,7 +15,7 @@ body .TextField-Body textarea {
 }
 
 body .TextField-Body .TextField-Input::placeholder {
-  color: var(--color-light-medium);
+  color: var(--color-grey-medium);
   font-weight: 500;
 }
 
@@ -65,4 +65,11 @@ body button.Button_view_primary[data-status='primary'] {
     background-color: var(--color-red-dark) !important;
     opacity: 0.8;
   }
+}
+
+// DragAndDrop
+
+body .DragNDropField {
+  width: 100%;
+  height: 100%;
 }

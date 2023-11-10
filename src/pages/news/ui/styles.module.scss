@@ -10,7 +10,6 @@
   font-weight: 700;
 }
 
-
 .topLine {
   display: flex;
   align-items: center;
@@ -20,10 +19,24 @@
 }
 
 .topLineCategory {
-  flex: 0 0 33.3%;
   font-size: 16px;
   font-weight: 500;
   color: var(--color-red-dark);
+}
+
+.preview {
+  flex: 0 0 20%;
+}
+
+.itemTitle {
+  flex: 0 0 60%;
+}
+
+.actions {
+  flex: 0 0 20%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
 }
 
 .line {
@@ -36,14 +49,35 @@
 }
 
 .lineCategory {
-  flex: 0 0 33.3%;
   font-size: 16px;
   font-weight: 500;
 }
 
-.actions {
+.previewBack {
+  width: 160px;
+  height: 70px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--color-red-light);
+}
+
+.previewImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.edit {
+  cursor: pointer;
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  width: 32px;
+  height: 32px;
+  border-radius: 12px;
+  color: var(--color-green-dark);
+  background-color: var(--color-green-medium);
 }
 
 .delete {

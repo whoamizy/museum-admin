@@ -1,3 +1,5 @@
 export * from './login'
 export * from './user'
 export * from './users'
+export * from './news'
+export * from './image'

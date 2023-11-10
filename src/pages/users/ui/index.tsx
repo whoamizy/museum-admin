@@ -1,7 +1,7 @@
 import { SearchBar } from "widgets/search-bar"
 import { useCallback, useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"
-import { ContentPlate } from "shared/components"
+import { ContentPlate, PageWrapper } from "shared/components"
 import styles from './styles.module.scss'
 import { useGetAllUsers } from "shared/api"
 import { ContentLoader } from "widgets/content-loader"
@@ -28,14 +28,15 @@ export const UsersPage = () => {
   }, [filterVariantsHandler])
 
   return (
-    <div className={styles.wrapper}>
+    <PageWrapper>
       <SearchBar
         value={searchValue}
         setValue={setSearchValue}
         placeholder={t('users.search')}
       />
-
-      <h1 className={styles.title}>{t('users.title')}</h1>
+      <div className={styles.infoLine}>
+        <h1 className={styles.title}>{t('users.title')}</h1>
+      </div>
       <div className={styles.topLine}>
         <div className={styles.topLineCategory}>
           {t('users.name')}
@@ -60,6 +61,6 @@ export const UsersPage = () => {
           </>
         }
       </ContentPlate>
-    </div>
+    </PageWrapper>
   )
 }
