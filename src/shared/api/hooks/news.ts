@@ -1,11 +1,18 @@
 import { useMutation, useQuery } from '@tanstack/react-query'
 import { NewsService } from '../services'
-import { NewsItemPayload } from 'widgets/news-item-form/lib'
+import { NewsItemPayload } from 'entities/news'
 
 export const useGetAllNews = () => {
   return useQuery({
     queryKey: ['news'],
     queryFn: () => NewsService.getAllNews(),
+  })
+}
+
+export const useGetOneNews = (id: string) => {
+  return useQuery({
+    queryKey: ['news', id],
+    queryFn: () => NewsService.getOne(id),
   })
 }
 
@@ -15,5 +22,11 @@ export const useDeleteNewsItem = () =>
 export const useCreateNews = () => {
   return useMutation({
     mutationFn: (payload: NewsItemPayload) => NewsService.create(payload),
+  })
+}
+
+export const useUpdateNews = (id: string) => {
+  return useMutation({
+    mutationFn: (payload: NewsItemPayload) => NewsService.update(id, payload),
   })
 }

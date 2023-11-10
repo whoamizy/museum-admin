@@ -1,12 +1,19 @@
 import { Path } from 'shared/enums'
 import { BaseService } from './base'
-import { NewsItem } from 'entities/news'
-import { NewsItemPayload } from 'widgets/news-item-form/lib'
+import { NewsItem, NewsItemPayload } from 'entities/news'
 
 export class NewsService extends BaseService {
   public static async getAllNews() {
     const { data } = await this.fetch<NewsItem[]>({
       url: Path.NEWS,
+    })
+
+    return data
+  }
+
+  public static async getOne(id: string) {
+    const { data } = await this.fetch<NewsItem>({
+      url: `${Path.NEWS}/${id}`,
     })
 
     return data
@@ -26,6 +33,16 @@ export class NewsService extends BaseService {
       url: Path.NEWS,
       data: payload,
       method: 'POST',
+    })
+
+    return data
+  }
+
+  public static async update(id: string, payload: NewsItemPayload) {
+    const { data } = await this.fetch<NewsItem>({
+      url: `${Path.NEWS}/${id}`,
+      data: payload,
+      method: 'PATCH',
     })
 
     return data

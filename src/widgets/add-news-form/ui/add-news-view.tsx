@@ -1,6 +1,5 @@
 import { FormikProps } from "formik"
 import { SaveBar } from "widgets/save-bar"
-import { NewsItemPayload } from "../lib"
 import { useTranslation } from "react-i18next"
 import { TextField } from "@consta/uikit/TextField"
 import { DragNDropField } from '@consta/uikit/DragNDropField'
@@ -12,6 +11,7 @@ import { toast } from 'react-toastify'
 import { env } from "shared/utils"
 import { Path } from "shared/enums"
 import { DeleteIcon } from "shared/assets/icons"
+import { NewsItemPayload } from "entities/news"
 import cn from 'classnames'
 
 export const AddNewsView = (

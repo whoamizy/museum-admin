@@ -4,3 +4,9 @@ export interface NewsItem {
   title: string
   link: string
 }
+
+export interface NewsItemPayload {
+  imageId: string
+  title: string
+  link: string
+}

@@ -43,6 +43,8 @@ export const ru = {
     errorDelete: "Не удалось удалить новость",
     successCreate: "Новость успешно создана",
     errorCreate: "Не удалось создать новость",
+    successUpdate: "Новость успешно обновлена",
+    errorUpdate: "Не удалось обновить новость",
     addNew: "Создать новость",
     form: {
       title: "Заголовок",

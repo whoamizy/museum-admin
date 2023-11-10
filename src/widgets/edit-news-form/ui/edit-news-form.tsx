@@ -1,37 +1,47 @@
 import { Formik } from "formik"
-import { NewsItemPayload, newsItemSchema } from "../lib"
+import { newsItemSchema } from "../lib"
 import { FormikSubmit } from "shared/types"
 import { EditNewsView } from "./edit-news-view"
-import { useNavigate } from "react-router-dom"
-import { useCreateNews } from "shared/api"
+import { useNavigate, useParams } from "react-router-dom"
+import { useGetOneNews, useUpdateNews } from "shared/api"
 import { AppLinks } from "shared/enums"
 import { useTranslation } from "react-i18next"
 import { toast } from 'react-toastify'
-
-const initialValues: NewsItemPayload = {
-  imageId: "",
-  title: "",
-  link: ""
-}
+import { NewsItemPayload } from "entities/news"
+import { ContentLoader } from "widgets/content-loader"
 
 export const EditNewsForm = () => {
+  const { id } = useParams()
+  const { data: newsItem, isLoading, refetch } = useGetOneNews(id!)
+
   const { t } = useTranslation()
   const navigate = useNavigate()
-  const { mutateAsync: create } = useCreateNews()
+  const { mutateAsync: update } = useUpdateNews(id!)
 
   const onSubmit: FormikSubmit<NewsItemPayload> = (values, helpers) => {
-    create(values, {
+    update(values, {
       onSuccess: () => {
-        toast.success(t('news.successCreate'))
+        toast.success(t('news.successUpdate'))
         navigate(AppLinks.NEWS, { replace: true })
+        refetch()
       },
       onSettled: () => {
         helpers.setSubmitting(false)
       },
       onError: () => {
-        toast.error(t('news.errorCreate'))
+        toast.error(t('news.errorUpdate'))
       }
     })
+  }
+
+  if (isLoading || !newsItem) {
+    return <ContentLoader />
+  }
+
+  const initialValues: NewsItemPayload = {
+    imageId: newsItem.imageId,
+    title: newsItem.title,
+    link: newsItem.link
   }
 
   return (
