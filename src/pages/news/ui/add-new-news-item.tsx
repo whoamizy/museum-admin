@@ -1,5 +1,10 @@
+import { PageWrapper } from "shared/components"
+import { SaveBar } from "widgets/save-bar"
+
 export const AddNewNewsItemPage = () => {
   return (
-    <div>add-new</div>
+    <PageWrapper>
+      <SaveBar onSave={() => { }} />
+    </PageWrapper>
   )
 }

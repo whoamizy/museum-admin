@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { SearchBar } from 'widgets/search-bar'
 import cn from 'classnames'
 import { useGetAllNews } from 'shared/api'
-import { ContentPlate } from 'shared/components'
+import { ContentPlate, PageWrapper } from 'shared/components'
 import { ContentLoader } from 'widgets/content-loader'
 import { NotFound } from 'widgets/not-found'
 import { NewsItem } from './news-item'
@@ -37,7 +37,7 @@ export const NewsPage = () => {
   }
 
   return (
-    <div className={styles.wrapper}>
+    <PageWrapper>
       <SearchBar
         value={searchValue}
         setValue={setSearchValue}
@@ -74,6 +74,6 @@ export const NewsPage = () => {
           </>
         }
       </ContentPlate>
-    </div>
+    </PageWrapper>
   )
 }

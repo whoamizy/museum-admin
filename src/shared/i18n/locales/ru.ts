@@ -2,7 +2,8 @@ export const ru = {
   general: {
     exit: "выйти",
     greeting: "Здравствуйте, {{name}}!",
-    notFound: "Ничего не найдено"
+    notFound: "Ничего не найдено",
+    save: "Сохранить"
   },
   pages: {
     users: "Пользователи",
