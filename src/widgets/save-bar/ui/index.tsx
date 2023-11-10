@@ -5,10 +5,12 @@ import { ArrowIcon } from 'shared/assets/icons'
 import { useNavigate } from 'react-router-dom'
 
 interface Props {
+  isSubmitting?: boolean
+  isDisabled?: boolean
   onSave(): void
 }
 
-export const SaveBar = ({ onSave }: Props) => {
+export const SaveBar = ({ isSubmitting, isDisabled, onSave }: Props) => {
   const { t } = useTranslation()
   const navigate = useNavigate()
 
@@ -23,8 +25,11 @@ export const SaveBar = ({ onSave }: Props) => {
       </div>
       <Button
         size="l"
+        type="submit"
         label={t('general.save')}
         onClick={onSave}
+        loading={isSubmitting}
+        disabled={isDisabled}
       />
     </div>
   )

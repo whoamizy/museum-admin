@@ -41,7 +41,19 @@ export const ru = {
     itemTitle: "Заголовок",
     successDelete: "Новость успешно удалена",
     errorDelete: "Не удалось удалить новость",
-    addNew: "Создать новость"
+    successCreate: "Новость успешно создана",
+    errorCreate: "Не удалось создать новость",
+    addNew: "Создать новость",
+    form: {
+      title: "Заголовок",
+      titlePlaceholder: "Введите заголовок",
+      link: "Ссылка на статью",
+      linkPlaceholder: "Вставьте ссылку на статью",
+      pickImageDescription: "Перетащите изображение сюда или загрузите по кнопке",
+      pickImage: "Выберите изображение",
+      errorUploadImage: "Не удалось загрузить изображение",
+      errorDeleteImage: "Не удалось удалить изображение"
+    }
   },
   errors: {
     required: "Обязательное поле",
@@ -49,5 +61,10 @@ export const ru = {
     invalidPassword: "Некорректный пароль",
     minPasswordLength: "Пароль должен содержать минимум {{value}} символов",
     maxPasswordLength: "Пароль должен содержать максимум {{value}} символов",
+    maxLength: "Значение должно содержать максимум {{value}} символов",
+    news: {
+      invalidTitle: "Неккоректный заголовок",
+      invalidLink: "Неккоректная ссылка",
+    }
   }
 }

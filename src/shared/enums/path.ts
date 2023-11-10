@@ -3,5 +3,7 @@ export enum Path {
   ME = "/users/me",
   USERS = "/users",
   NEWS = "/news",
-  GET_IMAGE = "/get/images/"
+  GET_IMAGE = "/get/images/",
+  UPLOAD_IMAGE = "/upload/image",
+  REMOVE_IMAGE = "/delete/images/"
 }
