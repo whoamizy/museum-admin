@@ -1,7 +1,7 @@
 import { PageWrapper } from "shared/components"
 import { NewsItemForm } from "widgets/news-item-form"
 
-export const NewNewsPage = () => {
+export const AddNewsPage = () => {
   return (
     <PageWrapper>
       <NewsItemForm />
