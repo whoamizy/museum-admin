@@ -5,7 +5,7 @@ import styles from './styles.module.scss'
 import cn from "classnames"
 import { DeleteIcon, EditIcon } from "shared/assets/icons"
 import { useTranslation } from "react-i18next"
-import { useDeleteNewsItem } from "shared/api"
+import { useDeleteImage, useDeleteNewsItem } from "shared/api"
 import { toast } from "react-toastify"
 import { queryClient } from "shared/providers"
 import { useNavigate } from "react-router-dom"
@@ -14,6 +14,7 @@ export const NewsItem = ({ _id, imageId, title }: NewsItemType) => {
   const imageUrl = `${env.apiUrl}${Path.GET_IMAGE}${imageId}`
   const { t } = useTranslation()
   const { mutateAsync: deleteNewsItem } = useDeleteNewsItem()
+  const { mutateAsync: deleteImage } = useDeleteImage()
   const navigate = useNavigate()
 
   const deleteHandler = async () => {
@@ -26,6 +27,7 @@ export const NewsItem = ({ _id, imageId, title }: NewsItemType) => {
         toast.success(t('news.errorDelete'))
       }
     })
+    await deleteImage(imageId)
   }
 
   const navigateToEdit = () => {

@@ -1,11 +1,11 @@
 import { PageWrapper } from "shared/components"
-import { AddNewsForm } from "widgets/add-news-form"
+import { EditNewsForm } from "widgets/edit-news-form"
 
 export const EditNewsPage = () => {
 
   return (
     <PageWrapper>
-      <AddNewsForm />
+      <EditNewsForm />
     </PageWrapper>
   )
 }
