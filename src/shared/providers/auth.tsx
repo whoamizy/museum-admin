@@ -9,11 +9,13 @@ import { useGetMe } from "shared/api"
 interface Values {
   user: User | null
   logout(): void
+  isLoading: boolean
 }
 
 const initialValues: Values = {
   user: null,
   logout: noop,
+  isLoading: true
 }
 
 const Context = createContext(initialValues)
@@ -49,7 +51,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
     navigate(AppLinks.LOGIN, { replace: true })
   }, [navigate, queryClient])
 
-  const { data } = useGetMe({
+  const { data, isLoading } = useGetMe({
     queryKey: ['user/me'],
     enabled: !!token
   })
@@ -58,8 +60,9 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
     () => ({
       user: data ?? null,
       logout,
+      isLoading
     }),
-    [data, logout],
+    [data, isLoading, logout],
   )
 
   return <Context.Provider value={contextVal}>{children}</Context.Provider>
