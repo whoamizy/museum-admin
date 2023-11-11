@@ -42,7 +42,7 @@ export const AddNewsView = (
         setFieldValue('imageId', data.id)
       },
       onError: () => {
-        toast.error(t('news.form.errorUploadImage'))
+        toast.error(t('errors.uploadImage'))
       }
     })
   }
@@ -55,7 +55,7 @@ export const AddNewsView = (
         setFieldValue('imageId', undefined)
       },
       onError: () => {
-        toast.error(t('news.form.errorDeleteImage'))
+        toast.error(t('errors.deleteImage'))
       }
     })
   }

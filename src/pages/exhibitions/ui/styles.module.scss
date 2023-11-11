@@ -1,0 +1,87 @@
+.infoLine {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.topLine {
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  background: var(--color-red-light);
+  padding: 12px;
+}
+
+.topLineCategory {
+  flex: 0 0 25%;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-red-dark);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.line {
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  background: var(--color-extra-light-grey);
+  padding: 12px;
+  margin-top: 2px;
+}
+
+.lineCategory {
+  flex: 0 0 25%;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.previewBack {
+  width: 160px;
+  height: 70px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--color-red-light);
+}
+
+.previewImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.edit {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  width: 32px;
+  height: 32px;
+  border-radius: 12px;
+  color: var(--color-green-dark);
+  background-color: var(--color-green-medium);
+}
+
+.delete {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  width: 32px;
+  height: 32px;
+  border-radius: 12px;
+  color: var(--color-red-dark);
+  background-color: var(--color-red-light);
+}
