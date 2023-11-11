@@ -75,7 +75,7 @@ export const ru = {
       descriptionPlaceholder: "Введите описание",
       address: "Адрес",
       addressPlaceholder: "Введите адрес",
-      pickImageDescription: "Перетащите изображение сюда или загрузите по кнопке",
+      pickImageDescription: "Перетащите изображение сюда или загрузите по кнопке (Максимум 3)",
       pickImage: "Выберите изображение",
     }
   },
