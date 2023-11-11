@@ -7,7 +7,7 @@ import { Image } from "entities/image"
 import { env } from "shared/utils"
 import { Path } from "shared/enums"
 import { SaveBar } from "widgets/save-bar"
-import styles from './styles.module.scss'
+import styles from 'widgets/exhibitions/lib/styles.module.scss'
 import { TextField } from "@consta/uikit/TextField"
 import cn from "classnames"
 import { DragNDropField } from "@consta/uikit/DragNDropField"
@@ -122,8 +122,10 @@ export const AddExhibitionView = (
             <div>
               <TextField
                 id="description"
+                type="textarea"
+                rows={7}
+                cols={50}
                 width="full"
-                type="text"
                 value={description}
                 onChange={(e) => setFieldValue('description', e.value)}
                 caption={shouldDisplayError ? descriptionError : undefined}
