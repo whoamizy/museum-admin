@@ -5,8 +5,8 @@ import { NewsPage } from "./news"
 import { CollectionsPage } from "./collections"
 import { ExhibitionsPage } from "./exhibitions"
 import { TicketsPage } from "./tickets"
-import { AddNewsPage } from "./add-news"
-import { EditNewsPage } from "./edit-news"
+import { AddNewsPage } from "./news/add"
+import { EditNewsPage } from "./news/edit"
 
 export interface Route {
   path: AppLinks

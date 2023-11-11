@@ -1,7 +1,7 @@
 import { Formik } from "formik"
 import { newsItemSchema } from "../lib"
 import { FormikSubmit } from "shared/types"
-import { AddNewsView } from "./add-news-view"
+import { AddNewsView } from "./add-view"
 import { useNavigate } from "react-router-dom"
 import { useCreateNews } from "shared/api"
 import { AppLinks } from "shared/enums"
