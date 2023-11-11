@@ -3,7 +3,7 @@ import { SaveBar } from "widgets/save-bar"
 import { useTranslation } from "react-i18next"
 import { TextField } from "@consta/uikit/TextField"
 import { DragNDropField } from '@consta/uikit/DragNDropField'
-import styles from './styles.module.scss'
+import styles from 'widgets/news/lib/styles.module.scss'
 import { Button } from "@consta/uikit/Button"
 import { useDeleteImage, useUploadImage } from "shared/api"
 import { Image } from "entities/image"
@@ -14,7 +14,7 @@ import { DeleteIcon } from "shared/assets/icons"
 import { NewsItemPayload } from "entities/news"
 import cn from 'classnames'
 
-export const AddNewsView = (
+export const EditNewsView = (
   {
     values,
     errors,
@@ -42,7 +42,7 @@ export const AddNewsView = (
         setFieldValue('imageId', data.id)
       },
       onError: () => {
-        toast.error(t('news.form.errorUploadImage'))
+        toast.error(t('errors.uploadImage'))
       }
     })
   }
@@ -55,7 +55,7 @@ export const AddNewsView = (
         setFieldValue('imageId', undefined)
       },
       onError: () => {
-        toast.error(t('news.form.errorDeleteImage'))
+        toast.error(t('errors.deleteImage'))
       }
     })
   }
@@ -63,6 +63,7 @@ export const AddNewsView = (
   return (
     <>
       <SaveBar
+        hideBack
         isSubmitting={isSubmitting}
         isDisabled={isDisabled}
         onSave={submitForm}

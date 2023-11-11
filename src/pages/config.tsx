@@ -1,12 +1,10 @@
 import { AppLinks } from "shared/enums"
 import { LoginPage } from "./login"
 import { UsersPage } from "./users"
-import { NewsPage } from "./news"
+import { AddNewsPage, EditNewsPage, NewsPage } from "./news"
 import { CollectionsPage } from "./collections"
-import { ExhibitionsPage } from "./exhibitions"
+import { AddExhibitionPage, EditExhibitionPage, ExhibitionsPage } from "./exhibitions"
 import { TicketsPage } from "./tickets"
-import { AddNewsPage } from "./add-news"
-import { EditNewsPage } from "./edit-news"
 
 export interface Route {
   path: AppLinks
@@ -49,5 +47,13 @@ export const routes: Route[] = [
   {
     path: AppLinks.EDIT_NEWS,
     element: <EditNewsPage />
+  },
+  {
+    path: AppLinks.ADD_EXHIBITIONS,
+    element: <AddExhibitionPage />
+  },
+  {
+    path: AppLinks.EDIT_EXHIBITIONS,
+    element: <EditExhibitionPage />
   },
 ]

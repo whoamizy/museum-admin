@@ -53,8 +53,30 @@ export const ru = {
       linkPlaceholder: "Вставьте ссылку на статью",
       pickImageDescription: "Перетащите изображение сюда или загрузите по кнопке",
       pickImage: "Выберите изображение",
-      errorUploadImage: "Не удалось загрузить изображение",
-      errorDeleteImage: "Не удалось удалить изображение"
+    }
+  },
+  exhibitions: {
+    search: "Поиск по выставкам",
+    title: "Выставки",
+    preview: "Изображение",
+    itemTitle: "Название",
+    address: "Адрес",
+    successDelete: "Выставка успешно удалена",
+    errorDelete: "Не удалось удалить выставку",
+    successCreate: "Выставка успешно создана",
+    errorCreate: "Не удалось создать выставку",
+    successUpdate: "Выставка успешно обновлена",
+    errorUpdate: "Не удалось обновить выставку",
+    addNew: "Создать выставку",
+    form: {
+      title: "Название",
+      titlePlaceholder: "Введите название",
+      description: "Описание",
+      descriptionPlaceholder: "Введите описание",
+      address: "Адрес",
+      addressPlaceholder: "Введите адрес",
+      pickImageDescription: "Перетащите изображение сюда или загрузите по кнопке (Максимум 3)",
+      pickImage: "Выберите изображение",
     }
   },
   errors: {
@@ -67,6 +89,13 @@ export const ru = {
     news: {
       invalidTitle: "Неккоректный заголовок",
       invalidLink: "Неккоректная ссылка",
-    }
+    },
+    exhibitions: {
+      invalidTitle: "Неккоректное название",
+      invalidDescription: "Неккоректное описание",
+      invalidAddress: "Неккоректный адрес",
+    },
+    uploadImage: "Не удалось загрузить изображение",
+    deleteImage: "Не удалось удалить изображение"
   }
 }

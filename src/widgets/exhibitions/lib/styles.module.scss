@@ -1,3 +1,9 @@
+.wrapper {
+  overflow: hidden;
+  overflow-y: auto;
+  height: 100%;
+}
+
 .formWrapper {
   width: 100%;
   display: grid;
@@ -6,6 +12,9 @@
 }
 
 .imageBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   border-radius: 8px;
   background-color: var(--color-white-100);
   border: 1px solid var(--color-black-16);

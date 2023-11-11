@@ -7,5 +7,7 @@ export enum AppLinks {
   EDIT_NEWS = "/news/:id",
   COLLECTIONS = "/collections",
   EXHIBITIONS = "/exhibitions",
+  ADD_EXHIBITIONS = "/exhibitions/new",
+  EDIT_EXHIBITIONS = "/exhibitions/:id",
   TICKETS = "/tickets"
 }
