@@ -1,5 +1,4 @@
 import { Formik } from "formik"
-import { newsItemSchema } from "../lib"
 import { FormikSubmit } from "shared/types"
 import { EditNewsView } from "./edit-view"
 import { useNavigate, useParams } from "react-router-dom"
@@ -9,6 +8,7 @@ import { useTranslation } from "react-i18next"
 import { toast } from 'react-toastify'
 import { NewsItemPayload } from "entities/news"
 import { ContentLoader } from "widgets/content-loader"
+import { newsItemSchema } from "widgets/news/lib"
 
 export const EditNewsForm = () => {
   const { id } = useParams()

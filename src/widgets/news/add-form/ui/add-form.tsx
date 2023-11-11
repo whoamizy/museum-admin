@@ -1,5 +1,4 @@
 import { Formik } from "formik"
-import { newsItemSchema } from "../lib"
 import { FormikSubmit } from "shared/types"
 import { AddNewsView } from "./add-view"
 import { useNavigate } from "react-router-dom"
@@ -8,6 +7,7 @@ import { AppLinks } from "shared/enums"
 import { useTranslation } from "react-i18next"
 import { toast } from 'react-toastify'
 import { NewsItemPayload } from "entities/news"
+import { newsItemSchema } from "widgets/news/lib"
 
 const initialValues: NewsItemPayload = {
   imageId: "",
