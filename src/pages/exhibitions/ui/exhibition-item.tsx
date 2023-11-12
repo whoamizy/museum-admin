@@ -10,7 +10,7 @@ import { toast } from 'react-toastify'
 import { queryClient } from 'shared/providers'
 import cn from "classnames"
 
-export const ExhibitionItem = ({ _id, images, name, address }: Exhibition) => {
+export const ExhibitionItem = ({ _id, images, name, address, price }: Exhibition) => {
   const imageUrl = `${env.apiUrl}${Path.GET_IMAGE}${images[0]}`
   const { t } = useTranslation()
   const { mutateAsync: deleteExhibition } = useDeleteExhibition()
@@ -44,6 +44,9 @@ export const ExhibitionItem = ({ _id, images, name, address }: Exhibition) => {
       </div>
       <div className={styles.lineCategory}>
         {address}
+      </div>
+      <div className={styles.lineCategory}>
+        {t('exhibitions.priceValue', { value: price })}
       </div>
       <div className={cn(styles.lineCategory, styles.actions)}>
         <div className={styles.edit} onClick={navigateToEdit}>

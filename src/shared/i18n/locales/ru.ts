@@ -16,7 +16,11 @@ export const ru = {
     error: "Что-то пошло не так!"
   },
   form: {
-    error: "Ошибка"
+    error: "Ошибка",
+    pickImage: {
+      description: "Перетащите изображение сюда или загрузите по кнопке",
+      button: "Выберите изображение",
+    }
   },
   login: {
     title: "Вход",
@@ -61,6 +65,8 @@ export const ru = {
     preview: "Изображение",
     itemTitle: "Название",
     address: "Адрес",
+    price: "Цена билета",
+    priceValue: "{{value}} ₽",
     successDelete: "Выставка успешно удалена",
     errorDelete: "Не удалось удалить выставку",
     successCreate: "Выставка успешно создана",
@@ -75,6 +81,8 @@ export const ru = {
       descriptionPlaceholder: "Введите описание",
       address: "Адрес",
       addressPlaceholder: "Введите адрес",
+      price: "Цена билета (₽)",
+      pricePlaceholder: "Введите цену за 1 билет",
       pickImageDescription: "Перетащите изображение сюда или загрузите по кнопке (Максимум 3)",
       pickImage: "Выберите изображение",
     }
@@ -86,6 +94,7 @@ export const ru = {
     minPasswordLength: "Пароль должен содержать минимум {{value}} символов",
     maxPasswordLength: "Пароль должен содержать максимум {{value}} символов",
     maxLength: "Значение должно содержать максимум {{value}} символов",
+    minPrice: "Значение должно быть больше 0",
     news: {
       invalidTitle: "Неккоректный заголовок",
       invalidLink: "Неккоректная ссылка",

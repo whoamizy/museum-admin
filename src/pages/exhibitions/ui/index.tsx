@@ -60,6 +60,10 @@ export const ExhibitionsPage = () => {
         <div className={styles.topLineCategory}>
           {t('exhibitions.address')}
         </div>
+        <div className={styles.topLineCategory}>
+          {t('exhibitions.price')}
+        </div>
+        <div className={styles.topLineCategory}></div>
       </div>
       <ContentPlate>
         {isLoading && <ContentLoader />}

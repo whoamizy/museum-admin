@@ -42,7 +42,8 @@ export const EditExhibitionForm = () => {
     name: exhibition.name,
     images: exhibition.images,
     description: exhibition.description,
-    address: exhibition.address
+    address: exhibition.address,
+    price: exhibition.price
   }
 
 

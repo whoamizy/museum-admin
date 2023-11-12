@@ -13,7 +13,8 @@ const initialValues: ExhibitionPayload = {
   name: "",
   images: [],
   description: "",
-  address: ""
+  address: "",
+  price: 0
 }
 
 export const AddExhibitionForm = () => {
