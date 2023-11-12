@@ -87,6 +87,19 @@ export const ru = {
       pickImage: "Выберите изображение",
     }
   },
+  tickets: {
+    title: "Билеты",
+    exhibition: "Выставка",
+    user: "Пользователь",
+    dateAndTime: "Дата и время",
+    dateAndTimeValues: "{{date}} в {{time}}",
+    filters: {
+      exhibition: "Выберите выставку",
+      reset: "Сбросить"
+    },
+    successDelete: "Билет успешно удален",
+    errorDelete: "Не удалось удалить билет",
+  },
   errors: {
     required: "Обязательное поле",
     invalidEmail: "Некорректный e-mail",

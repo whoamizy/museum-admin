@@ -6,5 +6,6 @@ export enum Path {
   GET_IMAGE = "/get/images/",
   UPLOAD_IMAGE = "/upload/image",
   REMOVE_IMAGE = "/delete/images/",
-  EXHIBITIONS = "/exhibitions"
+  EXHIBITIONS = "/exhibitions",
+  TICKETS = "/tickets"
 }
