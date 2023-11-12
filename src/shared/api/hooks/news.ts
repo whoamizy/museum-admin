@@ -11,7 +11,7 @@ export const useGetAllNews = () => {
 
 export const useGetOneNews = (id: string) => {
   return useQuery({
-    queryKey: ['news', id],
+    queryKey: ['news/' + id],
     queryFn: () => NewsService.getOne(id),
   })
 }

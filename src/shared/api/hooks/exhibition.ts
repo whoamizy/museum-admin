@@ -11,7 +11,7 @@ export const useGetAllExhibitions = () => {
 
 export const useGetOneExhibition = (id: string) => {
   return useQuery({
-    queryKey: ['exhibitions', id],
+    queryKey: ['exhibitions/' + id],
     queryFn: () => ExhibitionService.getOne(id),
   })
 }
