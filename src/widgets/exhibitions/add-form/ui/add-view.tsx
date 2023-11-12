@@ -41,9 +41,9 @@ export const AddExhibitionView = (
 
   const shouldDisplayError = !!touched && !!errors
 
-  const uploadHandler = (files: File[]) => {
+  const uploadHandler = async (files: File[]) => {
     const file = files[0]
-    uploadImage(file, {
+    await uploadImage(file, {
       onSuccess: (data: Image) => {
         setFieldValue('images', [...images, data.id])
       },
