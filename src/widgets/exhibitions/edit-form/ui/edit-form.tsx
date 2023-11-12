@@ -18,8 +18,8 @@ export const EditExhibitionForm = () => {
   const navigate = useNavigate()
   const { mutateAsync: update } = useUpdateExhibition(id!)
 
-  const onSubmit: FormikSubmit<ExhibitionPayload> = (values, helpers) => {
-    update(values, {
+  const onSubmit: FormikSubmit<ExhibitionPayload> = async (values, helpers) => {
+    await update(values, {
       onSuccess: () => {
         toast.success(t('exhibitions.successUpdate'))
         navigate(AppLinks.EXHIBITIONS, { replace: true })
@@ -42,9 +42,9 @@ export const EditExhibitionForm = () => {
     name: exhibition.name,
     images: exhibition.images,
     description: exhibition.description,
-    address: exhibition.address
+    address: exhibition.address,
+    price: exhibition.price
   }
-
 
   return (
     <Formik

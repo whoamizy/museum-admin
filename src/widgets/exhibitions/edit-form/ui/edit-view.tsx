@@ -28,21 +28,22 @@ export const EditExhibitionView = (
   const { t } = useTranslation()
   const { mutateAsync: uploadImage } = useUploadImage()
   const { mutateAsync: deleteImage } = useDeleteImage()
-  const { name, images, description, address } = values
+  const { name, images, description, address, price } = values
   const {
     name: nameError,
     images: imagesError,
     description: descriptionError,
-    address: addressError
+    address: addressError,
+    price: priceError
   } = errors
 
   const isDisabled = isSubmitting || !isValid
 
   const shouldDisplayError = !!touched && !!errors
 
-  const uploadHandler = (files: File[]) => {
+  const uploadHandler = async (files: File[]) => {
     const file = files[0]
-    uploadImage(file, {
+    await uploadImage(file, {
       onSuccess: (data: Image) => {
         setFieldValue('images', [...images, data.id])
       },
@@ -53,9 +54,9 @@ export const EditExhibitionView = (
   }
 
   const deleteHandler = async (imageId: string) => {
+    setFieldValue('images', images.filter((id) => imageId !== id))
     await deleteImage(imageId, {
       onSuccess: () => {
-        setFieldValue('images', images.filter((id) => imageId !== id))
       },
       onError: () => {
         toast.error(t('errors.deleteImage'))
@@ -87,17 +88,17 @@ export const EditExhibitionView = (
             {images.length < 3 &&
               <DragNDropField
                 multiple={false}
-                accept="image/*"
+                accept={["image/jpeg", "image/png"]}
                 onDropFiles={uploadHandler}
               >
                 {({ openFileDialog }) => (
                   <>
                     <div className={styles.imageDescription}>
-                      {t('exhibitions.form.pickImageDescription')}
+                      {t('form.pickImage.description')}
                     </div>
                     <br />
                     <Button
-                      label={t('exhibitions.form.pickImage')}
+                      label={t('form.pickImage.button')}
                       onClick={openFileDialog}
                     />
                   </>
@@ -150,9 +151,25 @@ export const EditExhibitionView = (
                 labelPosition="top"
               />
             </div>
+            <div>
+              <TextField
+                id="price"
+                width="full"
+                type="number"
+                step={1}
+                min={1}
+                value={price?.toString()}
+                onChange={(e) => setFieldValue('price', e.value)}
+                caption={shouldDisplayError ? priceError : undefined}
+                status={priceError ? 'alert' : undefined}
+                placeholder={t('exhibitions.form.pricePlaceholder')}
+                label={t('exhibitions.form.price')}
+                labelPosition="top"
+              />
+            </div>
           </div>
         </div>
-      </div>
+      </div >
     </>
   )
 }

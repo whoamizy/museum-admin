@@ -13,7 +13,8 @@ const initialValues: ExhibitionPayload = {
   name: "",
   images: [],
   description: "",
-  address: ""
+  address: "",
+  price: 0
 }
 
 export const AddExhibitionForm = () => {
@@ -21,8 +22,8 @@ export const AddExhibitionForm = () => {
   const navigate = useNavigate()
   const { mutateAsync: create } = useCreateExhibition()
 
-  const onSubmit: FormikSubmit<ExhibitionPayload> = (values, helpers) => {
-    create(values, {
+  const onSubmit: FormikSubmit<ExhibitionPayload> = async (values, helpers) => {
+    await create(values, {
       onSuccess: () => {
         toast.success(t('exhibitions.successCreate'))
         navigate(AppLinks.EXHIBITIONS, { replace: true })

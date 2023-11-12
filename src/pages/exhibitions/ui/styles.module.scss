@@ -13,13 +13,15 @@
 .topLine {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 8px;
   border-radius: 8px;
   background: var(--color-red-light);
   padding: 12px;
 }
 
 .topLineCategory {
-  flex: 0 0 25%;
+  flex: 0 0 calc(20% - 8px);
   font-size: 16px;
   font-weight: 500;
   color: var(--color-red-dark);
@@ -34,6 +36,8 @@
 .line {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 8px;
   border-radius: 8px;
   background: var(--color-extra-light-grey);
   padding: 12px;
@@ -41,7 +45,7 @@
 }
 
 .lineCategory {
-  flex: 0 0 25%;
+  flex: 0 0 calc(20% - 8px);
   font-size: 16px;
   font-weight: 500;
 }

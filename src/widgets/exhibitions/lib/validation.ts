@@ -1,5 +1,5 @@
 import i18next from 'i18next'
-import { array, object, string } from 'yup'
+import { array, number, object, string } from 'yup'
 
 export const exhibitionSchema = object().shape({
   images: array()
@@ -14,4 +14,7 @@ export const exhibitionSchema = object().shape({
   address: string()
     .required(i18next.t('errors.required'))
     .max(1000, i18next.t('errors.maxLength', { value: 1000 })),
+  price: number()
+    .required(i18next.t('errors.required'))
+    .min(1, i18next.t('errors.minPrice'))
 })

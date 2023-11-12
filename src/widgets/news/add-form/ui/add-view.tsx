@@ -80,17 +80,17 @@ export const AddNewsView = (
           {!imageId &&
             <DragNDropField
               multiple={false}
-              accept="image/*"
+              accept={["image/jpeg", "image/png"]}
               onDropFiles={uploadHandler}
             >
               {({ openFileDialog }) => (
                 <>
                   <div className={styles.imageDescription}>
-                    {t('news.form.pickImageDescription')}
+                    {t('form.pickImage.description')}
                   </div>
                   <br />
                   <Button
-                    label={t('news.form.pickImage')}
+                    label={t('form.pickImage.button')}
                     onClick={openFileDialog}
                   />
                 </>

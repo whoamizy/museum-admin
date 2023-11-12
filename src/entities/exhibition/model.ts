@@ -4,6 +4,7 @@ export interface Exhibition {
   images: string[]
   description: string
   address: string
+  price: number
 }
 
 export interface ExhibitionPayload {
@@ -11,4 +12,5 @@ export interface ExhibitionPayload {
   images: string[]
   description: string
   address: string
+  price: number
 }
