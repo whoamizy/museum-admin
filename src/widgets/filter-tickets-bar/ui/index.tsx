@@ -3,7 +3,6 @@ import { useAuth } from "shared/providers"
 import { Select } from '@consta/uikit/Select'
 import styles from './styles.module.scss'
 import { Exhibition } from "entities/exhibition"
-import cn from "classnames"
 
 interface Props {
   exhibitions: Exhibition[]
@@ -37,16 +36,14 @@ export const FilterTicketsBar = (
             getItemKey={({ _id }) => _id}
           />
         </div>
-        <div className={cn(styles.selectItem, styles.resetItem)}>
-          {selectedExhibition &&
-            <div
-              className={styles.reset}
-              onClick={resetFilters}
-            >
-              {t("tickets.filters.reset")}
-            </div>
-          }
-        </div>
+        {selectedExhibition &&
+          <div
+            className={styles.reset}
+            onClick={resetFilters}
+          >
+            {t("tickets.filters.reset")}
+          </div>
+        }
       </div>
       {!!user &&
         <div className={styles.user}>

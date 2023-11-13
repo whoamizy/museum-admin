@@ -16,11 +16,7 @@
 }
 
 .selectItem {
-  flex: 0 0 calc(90% - 20px);
-}
-
-.resetItem {
-  flex: 0 0 10%;
+  flex-grow: 1;
 }
 
 .user {
