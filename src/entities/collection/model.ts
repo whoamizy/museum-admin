@@ -2,16 +2,16 @@ export interface CollectionItem {
   _id: string
   imageId: string
   name: string
-  author?: string
-  year?: string
+  author: string
+  year: string
   collectionName: Collection
 }
 
 export interface CollectionItemPayload {
   imageId: string
   name: string
-  author?: string
-  year?: string
+  author: string
+  year: string
   collectionName: Collection | string
 }
 

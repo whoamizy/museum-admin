@@ -6,6 +6,7 @@ import { CollectionsPage } from "./collections"
 import { AddExhibitionPage, EditExhibitionPage, ExhibitionsPage } from "./exhibitions"
 import { TicketsPage } from "./tickets"
 import { AddCollectionItemPage } from "./collections/add"
+import { EditCollectionItemPage } from "./collections/edit"
 
 export interface Route {
   path: AppLinks
@@ -60,5 +61,9 @@ export const routes: Route[] = [
   {
     path: AppLinks.ADD_COLLECTIONS_ITEMS,
     element: <AddCollectionItemPage />
+  },
+  {
+    path: AppLinks.EDIT_COLLECTIONS_ITEMS,
+    element: <EditCollectionItemPage />
   },
 ]
