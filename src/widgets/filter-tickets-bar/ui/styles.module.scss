@@ -16,11 +16,7 @@
 }
 
 .selectItem {
-  flex: 0 0 calc(90% - 20px);
-}
-
-.resetItem {
-  flex: 0 0 10%;
+  flex-grow: 1;
 }
 
 .user {
@@ -28,12 +24,5 @@
   text-align: right;
   font-size: 18px;
   font-weight: 700;
-  color: var(--color-red-dark);
-}
-
-.reset {
-  cursor: pointer;
-  font-size: 18px;
-  font-weight: 500;
   color: var(--color-red-dark);
 }

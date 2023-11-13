@@ -3,7 +3,7 @@ import { BaseService } from './base'
 import { NewsItem, NewsItemPayload } from 'entities/news'
 
 export class NewsService extends BaseService {
-  public static async getAllNews() {
+  public static async getAll() {
     const { data } = await this.fetch<NewsItem[]>({
       url: Path.NEWS,
     })

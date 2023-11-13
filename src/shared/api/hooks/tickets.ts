@@ -4,7 +4,7 @@ import { TicketsService } from '../services'
 export const useGetAllTickets = () => {
   return useQuery({
     queryKey: ['tickets'],
-    queryFn: () => TicketsService.getAllTickets(),
+    queryFn: () => TicketsService.getAll(),
   })
 }
 

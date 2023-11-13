@@ -3,7 +3,7 @@ import { BaseService } from './base'
 import { Ticket } from 'entities/ticket'
 
 export class TicketsService extends BaseService {
-  public static async getAllTickets() {
+  public static async getAll() {
     const { data } = await this.fetch<Ticket[]>({
       url: Path.TICKETS,
     })

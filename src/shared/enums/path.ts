@@ -7,5 +7,7 @@ export enum Path {
   UPLOAD_IMAGE = "/upload/image",
   REMOVE_IMAGE = "/delete/images/",
   EXHIBITIONS = "/exhibitions",
-  TICKETS = "/tickets"
+  TICKETS = "/tickets",
+  COLLECTIONS = "/collections",
+  COLLECTION_ITEMS = "/collection-items"
 }

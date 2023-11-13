@@ -5,7 +5,7 @@ import { NewsItemPayload } from 'entities/news'
 export const useGetAllNews = () => {
   return useQuery({
     queryKey: ['news'],
-    queryFn: () => NewsService.getAllNews(),
+    queryFn: () => NewsService.getAll(),
   })
 }
 

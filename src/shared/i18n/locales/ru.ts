@@ -3,7 +3,8 @@ export const ru = {
     exit: "выйти",
     greeting: "Здравствуйте, {{name}}!",
     notFound: "Ничего не найдено",
-    save: "Сохранить"
+    save: "Сохранить",
+    undefined: "Неизвестно"
   },
   pages: {
     users: "Пользователи",
@@ -99,6 +100,42 @@ export const ru = {
     },
     successDelete: "Билет успешно удален",
     errorDelete: "Не удалось удалить билет",
+  },
+  collections: {
+    title: "Коллекции",
+    search: "Поиск по коллекциям",
+    addNew: "Создать коллекцию",
+    name: "Название",
+    successDelete: "Коллекция успешно удалена",
+    errorDelete: "Не удалось удалить коллекцию",
+    successCreate: "Коллекция успешно создана",
+    errorCreate: "Не удалось создать коллекцию",
+    successUpdate: "Коллекция успешно обновлена",
+    errorUpdate: "Не удалось обновить коллекцию",
+    form: {
+      name: "Название",
+      namePlaceholder: "Введите название",
+    },
+    items: {
+      preview: "Изображение",
+      name: "Название",
+      author: "Автор",
+      year: "Год создания",
+      successDelete: "Элемент коллекции успешно удален",
+      errorDelete: "Не удалось удалить элемент коллекции",
+      successCreate: "Элемент коллекции успешно создан",
+      errorCreate: "Не удалось создать элемент коллекции",
+      successUpdate: "Элемент коллекции успешно обновлен",
+      errorUpdate: "Не удалось обновить элемент коллекции",
+      form: {
+        name: "Название",
+        namePlaceholder: "Введите название",
+        author: "Автор",
+        authorPlaceholder: "Введите автора",
+        year: "Год создания",
+        yearPlaceholder: "Введите год создания",
+      }
+    }
   },
   errors: {
     required: "Обязательное поле",

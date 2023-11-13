@@ -1,0 +1,123 @@
+.infoLine {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.topLine {
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  background: var(--color-red-light);
+  padding: 12px;
+}
+
+.topLineCategory {
+  flex: 0 0 50%;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-red-dark);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.line {
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  background: var(--color-extra-light-grey);
+  padding: 12px;
+  margin-top: 2px;
+}
+
+.lineCategory {
+  flex: 0 0 50%;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.collapseButton {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  width: 32px;
+  height: 32px;
+  border-radius: 12px;
+  background-color: var(--color-red-light);
+  transform: rotate(-90deg);
+
+  &.collapsed {
+    transform: rotate(90deg);
+  }
+}
+
+.plus {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  width: 32px;
+  height: 32px;
+  border-radius: 12px;
+  color: var(--color-yellow-dark);
+  background-color: var(--color-yellow-medium);
+}
+
+.edit {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  width: 32px;
+  height: 32px;
+  border-radius: 12px;
+  color: var(--color-green-dark);
+  background-color: var(--color-green-medium);
+}
+
+.delete {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  width: 32px;
+  height: 32px;
+  border-radius: 12px;
+  color: var(--color-red-dark);
+  background-color: var(--color-red-light);
+}
+
+.collectionItems {
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: 0.3s;
+
+  &.collapsed {
+    grid-template-rows: 0fr;
+  }
+}
+
+.collectionItemsInner {
+  overflow: hidden;
+}
