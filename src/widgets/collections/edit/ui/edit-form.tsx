@@ -8,6 +8,7 @@ import { collectionSchema } from "widgets/collections/lib"
 import { EditCollectionView } from "./edit-view"
 import { ContentLoader } from "widgets/content-loader"
 import { Modal } from "widgets/modal"
+import { queryClient } from "shared/providers"
 
 interface Props {
   id: string
@@ -17,16 +18,16 @@ interface Props {
 
 export const EditCollectionForm = ({ id, isOpen, close }: Props) => {
   const { t } = useTranslation()
-  const { data: collection, isLoading, refetch } = useGetOneCollection(id!)
+  const { data: collection, isLoading } = useGetOneCollection(id!)
 
   const { mutateAsync: update } = useUpdateCollection(id!)
 
   const onSubmit: FormikSubmit<CollectionPayload> = async (values, helpers) => {
-    update(values, {
+    await update(values, {
       onSuccess: () => {
         toast.success(t('collections.successUpdate'))
+        queryClient.refetchQueries({ queryKey: ['collections'] })
         close()
-        refetch()
       },
       onSettled: () => {
         helpers.setSubmitting(false)
