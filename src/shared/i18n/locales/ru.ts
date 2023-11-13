@@ -3,7 +3,8 @@ export const ru = {
     exit: "выйти",
     greeting: "Здравствуйте, {{name}}!",
     notFound: "Ничего не найдено",
-    save: "Сохранить"
+    save: "Сохранить",
+    undefined: "Неизвестно"
   },
   pages: {
     users: "Пользователи",
@@ -114,6 +115,18 @@ export const ru = {
     form: {
       name: "Название",
       namePlaceholder: "Введите название",
+    },
+    items: {
+      preview: "Изображение",
+      name: "Название",
+      author: "Автор",
+      year: "Год создания",
+      successDelete: "Элемент коллекции успешно удален",
+      errorDelete: "Не удалось удалить элемент коллекции",
+      successCreate: "Элемент коллекции успешно создан",
+      errorCreate: "Не удалось создать элемент коллекции",
+      successUpdate: "Элемент коллекции успешно обновлен",
+      errorUpdate: "Не удалось обновить элемент коллекции",
     }
   },
   errors: {

@@ -9,4 +9,5 @@ export enum Path {
   EXHIBITIONS = "/exhibitions",
   TICKETS = "/tickets",
   COLLECTIONS = "/collections",
+  COLLECTION_ITEMS = "/collection-items"
 }
