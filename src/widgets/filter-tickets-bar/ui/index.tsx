@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next"
 import { useAuth } from "shared/providers"
-import { Select } from '@consta/uikit/Select'
+import { Combobox } from '@consta/uikit/Combobox'
 import styles from './styles.module.scss'
 import { Exhibition } from "entities/exhibition"
 
@@ -19,15 +19,11 @@ export const FilterTicketsBar = (
   const { user } = useAuth()
   const { t } = useTranslation()
 
-  const resetFilters = () => {
-    setSelectedExhibition(null)
-  }
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.selectWrapper}>
         <div className={styles.selectItem}>
-          <Select
+          <Combobox
             placeholder={t('tickets.filters.exhibition')}
             items={exhibitions}
             value={selectedExhibition}
@@ -36,14 +32,6 @@ export const FilterTicketsBar = (
             getItemKey={({ _id }) => _id}
           />
         </div>
-        {selectedExhibition &&
-          <div
-            className={styles.reset}
-            onClick={resetFilters}
-          >
-            {t("tickets.filters.reset")}
-          </div>
-        }
       </div>
       {!!user &&
         <div className={styles.user}>

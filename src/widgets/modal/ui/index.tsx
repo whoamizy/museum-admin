@@ -1,21 +1,18 @@
 import { PropsWithChildren } from "react"
-import styles from './styles.module.scss'
 import { useModal } from "shared/providers"
+import { Modal as ConstaModal } from '@consta/uikit/Modal'
 
 export const Modal = ({ children }: PropsWithChildren) => {
   const { isOpen, close } = useModal()
 
-  const stopPropagation = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.stopPropagation()
-  }
-
-  if (!isOpen) return null
-
   return (
-    <div className={styles.wrapper} onClick={close}>
-      <div className={styles.inner} onClick={stopPropagation}>
-        {children}
-      </div>
-    </div>
+    <ConstaModal
+      isOpen={isOpen}
+      hasOverlay
+      onClickOutside={close}
+      onEsc={close}
+    >
+      {children}
+    </ConstaModal>
   )
 }

@@ -125,3 +125,12 @@ body .Select-Label {
   font-size: 14px;
   line-height: 1;
 }
+
+// Modal
+body .Modal-Overlay {
+  background: var(--color-black-32);
+}
+
+body .Modal-Window {
+  min-width: 500px;
+}
