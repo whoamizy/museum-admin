@@ -8,11 +8,21 @@ import cn from 'classnames'
 import { ArrowIcon, DeleteIcon, EditIcon, PlusIcon } from "shared/assets/icons"
 import { CollectionItems } from "widgets/collection-items"
 import { useState } from "react"
+import { EditCollectionForm } from "widgets/collections/edit"
 
 export const CollectionsItem = ({ _id, name }: Collection) => {
   const { t } = useTranslation()
   const { mutateAsync: deleteCollection } = useDeleteCollection()
   const [isCollapsed, setIsCollapsed] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const open = () => {
+    setIsModalOpen(true)
+  }
+
+  const close = () => {
+    setIsModalOpen(false)
+  }
 
   const collapseCollection = () => {
     setIsCollapsed(prev => !prev)
@@ -43,7 +53,7 @@ export const CollectionsItem = ({ _id, name }: Collection) => {
           <div className={styles.plus} onClick={() => { }}>
             <PlusIcon />
           </div>
-          <div className={styles.edit} onClick={() => { }}>
+          <div className={styles.edit} onClick={open}>
             <EditIcon />
           </div>
           <div className={styles.delete} onClick={deleteHandler}>
@@ -55,7 +65,8 @@ export const CollectionsItem = ({ _id, name }: Collection) => {
         <div className={styles.collectionItemsInner}>
           <CollectionItems id={_id} />
         </div>
-      </div >
+      </div>
+      <EditCollectionForm id={_id} isOpen={isModalOpen} close={close} />
     </>
   )
 }

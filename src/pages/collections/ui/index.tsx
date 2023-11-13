@@ -8,8 +8,6 @@ import { Button } from "@consta/uikit/Button"
 import { ContentLoader } from "widgets/content-loader"
 import { CollectionsItem } from "./collections-item"
 import { NotFound } from "widgets/not-found"
-import { Modal } from "widgets/modal"
-import { useModal } from "shared/providers"
 import { AddCollectionForm } from "widgets/collections/add"
 
 export const CollectionsPage = () => {
@@ -17,7 +15,15 @@ export const CollectionsPage = () => {
   const [searchValue, setSearchValue] = useState<string | null>("")
   const { data: collections, isLoading } = useGetAllCollections()
   const [filteredCollections, setFilteredCollections] = useState(collections)
-  const { open } = useModal()
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const open = () => {
+    setIsModalOpen(true)
+  }
+
+  const close = () => {
+    setIsModalOpen(false)
+  }
 
   const filterVariantsHandler = useCallback(() => {
     if (!collections) return
@@ -68,9 +74,7 @@ export const CollectionsPage = () => {
           </>
         }
       </ContentPlate>
-      <Modal>
-        <AddCollectionForm />
-      </Modal>
+      <AddCollectionForm isOpen={isModalOpen} close={close} />
     </PageWrapper>
   )
 }

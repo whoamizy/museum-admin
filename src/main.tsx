@@ -15,7 +15,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import { Theme } from '@consta/uikit/Theme'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-import { AuthProvider, ModalProvider, QueryClientProvider } from 'shared/providers'
+import { AuthProvider, QueryClientProvider } from 'shared/providers'
 import { themePreset } from 'shared/styles/theme'
 
 import i18n from 'shared/i18n'
@@ -27,9 +27,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <I18nextProvider i18n={i18n}>
           <Theme preset={themePreset}>
             <AuthProvider>
-              <ModalProvider>
-                <App />
-              </ModalProvider>
+              <App />
               <ReactQueryDevtools initialIsOpen={false} position="right" />
             </AuthProvider>
           </Theme>

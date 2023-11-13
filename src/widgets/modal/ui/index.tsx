@@ -1,10 +1,12 @@
 import { PropsWithChildren } from "react"
-import { useModal } from "shared/providers"
 import { Modal as ConstaModal } from '@consta/uikit/Modal'
 
-export const Modal = ({ children }: PropsWithChildren) => {
-  const { isOpen, close } = useModal()
+interface Props extends PropsWithChildren {
+  isOpen: boolean
+  close(): void
+}
 
+export const Modal = ({ children, isOpen, close }: Props) => {
   return (
     <ConstaModal
       isOpen={isOpen}

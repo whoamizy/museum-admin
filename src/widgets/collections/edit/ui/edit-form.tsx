@@ -1,41 +1,48 @@
 import { Formik } from "formik"
 import { useTranslation } from "react-i18next"
 import { toast } from "react-toastify"
-import { useCreateCollection } from "shared/api"
+import { useGetOneCollection, useUpdateCollection } from "shared/api"
 import { FormikSubmit } from "shared/types"
 import { CollectionPayload } from "entities/collection"
-import { queryClient } from "shared/providers"
 import { collectionSchema } from "widgets/collections/lib"
-import { AddCollectionView } from "./add-view"
+import { EditCollectionView } from "./edit-view"
+import { ContentLoader } from "widgets/content-loader"
 import { Modal } from "widgets/modal"
 
 interface Props {
+  id: string
   isOpen: boolean
   close(): void
 }
 
-const initialValues: CollectionPayload = {
-  name: ""
-}
-
-export const AddCollectionForm = ({ isOpen, close }: Props) => {
+export const EditCollectionForm = ({ id, isOpen, close }: Props) => {
   const { t } = useTranslation()
-  const { mutateAsync: create } = useCreateCollection()
+  const { data: collection, isLoading, refetch } = useGetOneCollection(id!)
+
+  const { mutateAsync: update } = useUpdateCollection(id!)
 
   const onSubmit: FormikSubmit<CollectionPayload> = async (values, helpers) => {
-    await create(values, {
+    update(values, {
       onSuccess: () => {
-        toast.success(t('collections.successCreate'))
+        toast.success(t('collections.successUpdate'))
         close()
-        queryClient.refetchQueries({ queryKey: ['collections'] })
+        refetch()
       },
       onSettled: () => {
         helpers.setSubmitting(false)
       },
       onError: () => {
-        toast.error(t('collections.errorCreate'))
+        toast.error(t('collections.errorUpdate'))
       }
     })
+  }
+
+  if (isLoading || !collection) {
+    return <ContentLoader />
+  }
+
+  const initialValues: CollectionPayload = {
+    name: collection.name,
   }
 
   return (
@@ -44,7 +51,7 @@ export const AddCollectionForm = ({ isOpen, close }: Props) => {
         initialValues={initialValues}
         onSubmit={onSubmit}
         validationSchema={collectionSchema}
-        component={AddCollectionView}
+        component={EditCollectionView}
       />
     </Modal>
   )
