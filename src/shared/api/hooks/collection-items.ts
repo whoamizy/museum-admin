@@ -4,7 +4,7 @@ import { CollectionItemsService } from '../services'
 
 export const useGetAllCollectionItems = (id: string) => {
   return useQuery({
-    queryKey: ['collection-items'],
+    queryKey: ['collection-items/' + id],
     queryFn: () => CollectionItemsService.getAll(id),
   })
 }
