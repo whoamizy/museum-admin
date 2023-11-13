@@ -46,6 +46,29 @@
   font-weight: 500;
 }
 
+.info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.collapseButton {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  width: 32px;
+  height: 32px;
+  border-radius: 12px;
+  background-color: var(--color-red-light);
+  transform: rotate(-90deg);
+
+  &.collapsed {
+    transform: rotate(90deg);
+  }
+}
+
 .plus {
   cursor: pointer;
   display: flex;
@@ -83,4 +106,18 @@
   border-radius: 12px;
   color: var(--color-red-dark);
   background-color: var(--color-red-light);
+}
+
+.collectionItems {
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: 0.3s;
+
+  &.collapsed {
+    grid-template-rows: 0fr;
+  }
+}
+
+.collectionItemsInner {
+  overflow: hidden;
 }
