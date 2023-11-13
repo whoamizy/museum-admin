@@ -10,6 +10,7 @@ import { CollectionsItem } from "./collections-item"
 import { NotFound } from "widgets/not-found"
 import { Modal } from "widgets/modal"
 import { useModal } from "shared/providers"
+import { AddCollectionForm } from "widgets/collections/add"
 
 export const CollectionsPage = () => {
   const { t } = useTranslation()
@@ -67,7 +68,9 @@ export const CollectionsPage = () => {
           </>
         }
       </ContentPlate>
-      <Modal />
+      <Modal>
+        <AddCollectionForm />
+      </Modal>
     </PageWrapper>
   )
 }

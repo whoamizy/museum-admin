@@ -1,5 +1,4 @@
 import { PropsWithChildren } from "react"
-import { createPortal } from "react-dom"
 import styles from './styles.module.scss'
 import { useModal } from "shared/providers"
 
@@ -12,12 +11,11 @@ export const Modal = ({ children }: PropsWithChildren) => {
 
   if (!isOpen) return null
 
-  return createPortal(
+  return (
     <div className={styles.wrapper} onClick={close}>
       <div className={styles.inner} onClick={stopPropagation}>
         {children}
       </div>
-    </div>,
-    document.getElementById('modals')!
+    </div>
   )
 }

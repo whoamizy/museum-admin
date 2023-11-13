@@ -106,7 +106,15 @@ export const ru = {
     addNew: "Создать коллекцию",
     name: "Название",
     successDelete: "Коллекция успешно удалена",
-    errorDelete: "Не удалось удалить коллекцию"
+    errorDelete: "Не удалось удалить коллекцию",
+    successCreate: "Коллекция успешно создана",
+    errorCreate: "Не удалось создать коллекцию",
+    successUpdate: "Коллекция успешно обновлена",
+    errorUpdate: "Не удалось обновить коллекцию",
+    form: {
+      name: "Название",
+      namePlaceholder: "Введите название",
+    }
   },
   errors: {
     required: "Обязательное поле",
