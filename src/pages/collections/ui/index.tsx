@@ -8,12 +8,15 @@ import { Button } from "@consta/uikit/Button"
 import { ContentLoader } from "widgets/content-loader"
 import { CollectionsItem } from "./collections-item"
 import { NotFound } from "widgets/not-found"
+import { Modal } from "widgets/modal"
+import { useModal } from "shared/providers"
 
 export const CollectionsPage = () => {
   const { t } = useTranslation()
   const [searchValue, setSearchValue] = useState<string | null>("")
   const { data: collections, isLoading } = useGetAllCollections()
   const [filteredCollections, setFilteredCollections] = useState(collections)
+  const { open } = useModal()
 
   const filterVariantsHandler = useCallback(() => {
     if (!collections) return
@@ -40,7 +43,7 @@ export const CollectionsPage = () => {
         <Button
           size="l"
           label={t('collections.addNew')}
-          onClick={() => { }}
+          onClick={open}
         />
       </div>
       <div className={styles.topLine}>
@@ -64,6 +67,7 @@ export const CollectionsPage = () => {
           </>
         }
       </ContentPlate>
+      <Modal />
     </PageWrapper>
   )
 }
