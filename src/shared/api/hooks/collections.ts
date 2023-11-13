@@ -4,14 +4,14 @@ import { CollectionPayload } from 'entities/collection'
 
 export const useGetAllCollections = () => {
   return useQuery({
-    queryKey: ['collection'],
+    queryKey: ['collections'],
     queryFn: () => CollectionsService.getAll(),
   })
 }
 
 export const useGetOneCollection = (id: string) => {
   return useQuery({
-    queryKey: ['collection/' + id],
+    queryKey: ['collections/' + id],
     queryFn: () => CollectionsService.getOne(id),
   })
 }

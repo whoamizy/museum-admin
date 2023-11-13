@@ -100,6 +100,14 @@ export const ru = {
     successDelete: "Билет успешно удален",
     errorDelete: "Не удалось удалить билет",
   },
+  collections: {
+    title: "Коллекции",
+    search: "Поиск по коллекциям",
+    addNew: "Создать коллекцию",
+    name: "Название",
+    successDelete: "Коллекция успешно удалена",
+    errorDelete: "Не удалось удалить коллекцию"
+  },
   errors: {
     required: "Обязательное поле",
     invalidEmail: "Некорректный e-mail",
