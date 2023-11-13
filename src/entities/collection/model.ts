@@ -12,7 +12,7 @@ export interface CollectionItemPayload {
   name: string
   author?: string
   year?: string
-  collectionName: Collection
+  collectionName: Collection | string
 }
 
 export interface Collection {

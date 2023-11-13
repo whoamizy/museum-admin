@@ -127,6 +127,14 @@ export const ru = {
       errorCreate: "Не удалось создать элемент коллекции",
       successUpdate: "Элемент коллекции успешно обновлен",
       errorUpdate: "Не удалось обновить элемент коллекции",
+      form: {
+        name: "Название",
+        namePlaceholder: "Введите название",
+        author: "Автор",
+        authorPlaceholder: "Введите автора",
+        year: "Год создания",
+        yearPlaceholder: "Введите год создания",
+      }
     }
   },
   errors: {

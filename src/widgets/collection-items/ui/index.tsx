@@ -42,7 +42,7 @@ export const CollectionItems = ({ id }: Props) => {
             <ul>
               {collectionItems.map((collectionItem) =>
                 <li key={collectionItem._id}>
-                  <CollectionItem {...collectionItem} />
+                  <CollectionItem collectionId={id} {...collectionItem} />
                 </li>
               )}
             </ul>

@@ -5,6 +5,7 @@ import { AddNewsPage, EditNewsPage, NewsPage } from "./news"
 import { CollectionsPage } from "./collections"
 import { AddExhibitionPage, EditExhibitionPage, ExhibitionsPage } from "./exhibitions"
 import { TicketsPage } from "./tickets"
+import { AddCollectionItemPage } from "./collections/add"
 
 export interface Route {
   path: AppLinks
@@ -55,5 +56,9 @@ export const routes: Route[] = [
   {
     path: AppLinks.EDIT_EXHIBITIONS,
     element: <EditExhibitionPage />
+  },
+  {
+    path: AppLinks.ADD_COLLECTIONS_ITEMS,
+    element: <AddCollectionItemPage />
   },
 ]

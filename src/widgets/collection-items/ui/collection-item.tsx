@@ -10,7 +10,11 @@ import styles from './styles.module.scss'
 import cn from "classnames"
 import { DeleteIcon, EditIcon } from "shared/assets/icons"
 
-export const CollectionItem = ({ _id, imageId, name, author, year }: CollectionItemType) => {
+interface Props extends CollectionItemType {
+  collectionId: string
+}
+
+export const CollectionItem = ({ _id, imageId, name, author, year, collectionId }: Props) => {
   const imageUrl = `${env.apiUrl}${Path.GET_IMAGE}${imageId}`
   const { t } = useTranslation()
   const { mutateAsync: deleteCollectionItem } = useDeleteCollectionItem()
@@ -20,7 +24,7 @@ export const CollectionItem = ({ _id, imageId, name, author, year }: CollectionI
     await deleteCollectionItem(_id, {
       onSuccess: () => {
         toast.success(t('collections.items.successDelete'))
-        queryClient.refetchQueries({ queryKey: ['collection-items'] })
+        queryClient.refetchQueries({ queryKey: ['collection-items/' + collectionId] })
       },
       onError: () => {
         toast.success(t('collections.items.errorDelete'))
@@ -43,10 +47,10 @@ export const CollectionItem = ({ _id, imageId, name, author, year }: CollectionI
         {name}
       </div>
       <div className={styles.lineCategory}>
-        {author ?? <div className={styles.undefined}>{t('general.undefined')}</div>}
+        {author}
       </div>
       <div className={styles.lineCategory}>
-        {year ?? <div className={styles.undefined}>{t('general.undefined')}</div>}
+        {year}
       </div>
       <div className={cn(styles.lineCategory, styles.actions)}>
         <div className={styles.edit} onClick={navigateToEdit}>

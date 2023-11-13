@@ -9,12 +9,15 @@ import { ArrowIcon, DeleteIcon, EditIcon, PlusIcon } from "shared/assets/icons"
 import { CollectionItems } from "widgets/collection-items"
 import { useState } from "react"
 import { EditCollectionForm } from "widgets/collections/edit"
+import { useNavigate } from "react-router-dom"
+import { AppLinks } from "shared/enums"
 
 export const CollectionsItem = ({ _id, name }: Collection) => {
   const { t } = useTranslation()
   const { mutateAsync: deleteCollection } = useDeleteCollection()
   const [isCollapsed, setIsCollapsed] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const navigate = useNavigate()
 
   const open = () => {
     setIsModalOpen(true)
@@ -31,18 +34,22 @@ export const CollectionsItem = ({ _id, name }: Collection) => {
   const deleteHandler = async () => {
     await deleteCollection(_id, {
       onSuccess: () => {
-        toast.success(t('news.successDelete'))
+        toast.success(t('collections.successDelete'))
         queryClient.refetchQueries({ queryKey: ['collections'] })
       },
       onError: () => {
-        toast.success(t('news.errorDelete'))
+        toast.success(t('collections.errorDelete'))
       }
     })
   }
 
+  const navigateToNew = () => {
+    navigate('/' + _id + AppLinks.COLLECTIONS_ITEMS + '/new')
+  }
+
   return (
     <>
-      <div className={styles.line} >
+      <div className={styles.line}>
         <div className={cn(styles.lineCategory, styles.info)}>
           <div className={cn(styles.collapseButton, { [styles.collapsed]: isCollapsed })} onClick={collapseCollection}>
             <ArrowIcon />
@@ -50,7 +57,7 @@ export const CollectionsItem = ({ _id, name }: Collection) => {
           {name}
         </div>
         <div className={cn(styles.lineCategory, styles.actions)}>
-          <div className={styles.plus} onClick={() => { }}>
+          <div className={styles.plus} onClick={navigateToNew}>
             <PlusIcon />
           </div>
           <div className={styles.edit} onClick={open}>
