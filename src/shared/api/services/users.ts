@@ -3,7 +3,7 @@ import { BaseService } from './base'
 import { User } from 'entities/user'
 
 export class UsersService extends BaseService {
-  public static async getAllUsers() {
+  public static async getAll() {
     const { data } = await this.fetch<User[]>({
       url: Path.USERS,
     })

@@ -4,7 +4,7 @@ import { UsersService } from '../services'
 export const useGetAllUsers = () => {
   return useQuery({
     queryKey: ['users'],
-    queryFn: () => UsersService.getAllUsers(),
+    queryFn: () => UsersService.getAll(),
   })
 }
 
