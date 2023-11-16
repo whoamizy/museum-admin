@@ -10,7 +10,7 @@ export const exhibitionSchema = object().shape({
     .max(500, i18next.t('errors.maxLength', { value: 500 })),
   description: string()
     .required(i18next.t('errors.required'))
-    .max(500, i18next.t('errors.maxLength', { value: 500 })),
+    .max(2000, i18next.t('errors.maxLength', { value: 2000 })),
   address: string()
     .required(i18next.t('errors.required'))
     .max(1000, i18next.t('errors.maxLength', { value: 1000 })),
