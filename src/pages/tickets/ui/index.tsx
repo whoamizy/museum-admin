@@ -45,6 +45,7 @@ export const TicketsPage = () => {
       }
       <div className={styles.infoLine}>
         <h1 className={styles.title}>{t('tickets.title')}</h1>
+        <div className={styles.title}>{filteredTickets && t('tickets.length', {value: filteredTickets.length})}</div>
       </div>
       <div className={styles.topLine}>
         <div className={styles.topLineCategory}>

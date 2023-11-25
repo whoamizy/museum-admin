@@ -90,6 +90,7 @@ export const ru = {
   },
   tickets: {
     title: "Билеты",
+    length: "Кол-во билетов: {{value}}",
     exhibition: "Выставка",
     user: "Пользователь",
     dateAndTime: "Дата и время",
