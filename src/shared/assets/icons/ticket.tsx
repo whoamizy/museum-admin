@@ -1,4 +1,4 @@
-import { IconProps } from "./types"
+import { IconProps } from "./types";
 
 export const TicketIcon = (props: IconProps) => {
   return (
@@ -22,5 +22,5 @@ export const TicketIcon = (props: IconProps) => {
         d="M10 4v16"
       />
     </svg>
-  )
-}
+  );
+};

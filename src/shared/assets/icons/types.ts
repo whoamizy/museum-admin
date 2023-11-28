@@ -1,6 +1,6 @@
-import { SVGProps } from 'react'
+import { SVGProps } from "react";
 
 export type IconProps = SVGProps<SVGSVGElement> & {
-  active?: boolean
-  color?: string
-}
+  active?: boolean;
+  color?: string;
+};

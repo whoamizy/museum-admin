@@ -1,4 +1,4 @@
-import styles from './styles.module.scss'
+import styles from "./styles.module.scss";
 
 export const Loader = () => {
   return (
@@ -8,5 +8,5 @@ export const Loader = () => {
       <div></div>
       <div></div>
     </div>
-  )
-}
+  );
+};

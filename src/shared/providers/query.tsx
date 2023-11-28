@@ -1,11 +1,11 @@
-import { ReactNode } from 'react'
+import { ReactNode } from "react";
 import {
   QueryClient as QueryClientLib,
   QueryClientProvider as QueryClientProviderLib,
-} from '@tanstack/react-query'
+} from "@tanstack/react-query";
 
 interface Props {
-  children: ReactNode
+  children: ReactNode;
 }
 
 export const queryClient = new QueryClientLib({
@@ -17,10 +17,10 @@ export const queryClient = new QueryClientLib({
       staleTime: 5 * 60 * 1000,
     },
   },
-})
+});
 
 export const QueryClientProvider = ({ children }: Props) => (
   <QueryClientProviderLib client={queryClient}>
     {children}
   </QueryClientProviderLib>
-)
+);

@@ -1,1 +1,1 @@
-export * from './ui/edit-form'
+export * from "./ui/edit-form";

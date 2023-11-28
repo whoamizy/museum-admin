@@ -1,18 +1,18 @@
-import { TextField } from '@consta/uikit/TextField';
-import styles from './styles.module.scss'
-import { SearchIcon } from 'shared/assets/icons';
-import { useAuth } from 'shared/providers';
-import { useTranslation } from 'react-i18next';
+import { TextField } from "@consta/uikit/TextField";
+import styles from "./styles.module.scss";
+import { SearchIcon } from "shared/assets/icons";
+import { useAuth } from "shared/providers";
+import { useTranslation } from "react-i18next";
 
 interface Props {
-  value: string | null
-  setValue(val: string | null): void
-  placeholder?: string
+  value: string | null;
+  setValue(val: string | null): void;
+  placeholder?: string;
 }
 
 export const SearchBar = ({ value, setValue, placeholder }: Props) => {
-  const { user } = useAuth()
-  const { t } = useTranslation()
+  const { user } = useAuth();
+  const { t } = useTranslation();
   const handleChange = ({ value }: { value: string | null }) => setValue(value);
 
   return (
@@ -29,11 +29,11 @@ export const SearchBar = ({ value, setValue, placeholder }: Props) => {
           withClearButton
         />
       </div>
-      {!!user &&
+      {!!user && (
         <div className={styles.user}>
-          {t('general.greeting', { name: user.username })}
+          {t("general.greeting", { name: user.username })}
         </div>
-      }
+      )}
     </div>
-  )
-}
+  );
+};

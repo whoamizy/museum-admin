@@ -1,80 +1,78 @@
-import { useCallback, useEffect, useState } from "react"
-import { useTranslation } from "react-i18next"
-import { useGetAllCollections } from "shared/api"
-import { ContentPlate, PageWrapper } from "shared/components"
-import { SearchBar } from "widgets/search-bar"
-import styles from './styles.module.scss'
-import { Button } from "@consta/uikit/Button"
-import { ContentLoader } from "widgets/content-loader"
-import { CollectionsItem } from "./collections-item"
-import { NotFound } from "widgets/not-found"
-import { AddCollectionForm } from "widgets/collections/add"
+import { useCallback, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { useGetAllCollections } from "shared/api";
+import { ContentPlate, PageWrapper } from "shared/components";
+import { SearchBar } from "widgets/search-bar";
+import styles from "./styles.module.scss";
+import { Button } from "@consta/uikit/Button";
+import { ContentLoader } from "widgets/content-loader";
+import { CollectionsItem } from "./collections-item";
+import { NotFound } from "widgets/not-found";
+import { AddCollectionForm } from "widgets/collections/add";
 
 export const CollectionsPage = () => {
-  const { t } = useTranslation()
-  const [searchValue, setSearchValue] = useState<string | null>("")
-  const { data: collections, isLoading } = useGetAllCollections()
-  const [filteredCollections, setFilteredCollections] = useState(collections)
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const { t } = useTranslation();
+  const [searchValue, setSearchValue] = useState<string | null>("");
+  const { data: collections, isLoading } = useGetAllCollections();
+  const [filteredCollections, setFilteredCollections] = useState(collections);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const open = () => {
-    setIsModalOpen(true)
-  }
+    setIsModalOpen(true);
+  };
 
   const close = () => {
-    setIsModalOpen(false)
-  }
+    setIsModalOpen(false);
+  };
 
   const filterVariantsHandler = useCallback(() => {
-    if (!collections) return
+    if (!collections) return;
     if (searchValue) {
-      setFilteredCollections(collections.filter(({ name }) => name.toLowerCase().startsWith(searchValue.toLowerCase())))
+      setFilteredCollections(
+        collections.filter(({ name }) =>
+          name.toLowerCase().startsWith(searchValue.toLowerCase()),
+        ),
+      );
     } else {
-      setFilteredCollections(collections)
+      setFilteredCollections(collections);
     }
-  }, [collections, searchValue])
+  }, [collections, searchValue]);
 
   useEffect(() => {
-    filterVariantsHandler()
-  }, [filterVariantsHandler])
+    filterVariantsHandler();
+  }, [filterVariantsHandler]);
 
   return (
     <PageWrapper>
       <SearchBar
         value={searchValue}
         setValue={setSearchValue}
-        placeholder={t('collections.search')}
+        placeholder={t("collections.search")}
       />
       <div className={styles.infoLine}>
-        <h1 className={styles.title}>{t('collections.title')}</h1>
-        <Button
-          size="l"
-          label={t('collections.addNew')}
-          onClick={open}
-        />
+        <h1 className={styles.title}>{t("collections.title")}</h1>
+        <Button size="l" label={t("collections.addNew")} onClick={open} />
       </div>
       <div className={styles.topLine}>
-        <div className={styles.topLineCategory}>
-          {t('collections.name')}
-        </div>
+        <div className={styles.topLineCategory}>{t("collections.name")}</div>
         <div className={styles.topLineCategory}></div>
       </div>
       <ContentPlate>
         {isLoading && <ContentLoader />}
-        {!!filteredCollections &&
+        {!!filteredCollections && (
           <>
             {filteredCollections.length === 0 && <NotFound />}
             <ul>
-              {filteredCollections.map((collection) =>
+              {filteredCollections.map((collection) => (
                 <li key={collection._id}>
                   <CollectionsItem {...collection} />
                 </li>
-              )}
+              ))}
             </ul>
           </>
-        }
+        )}
       </ContentPlate>
       <AddCollectionForm isOpen={isModalOpen} close={close} />
     </PageWrapper>
-  )
-}
+  );
+};

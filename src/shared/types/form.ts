@@ -1,3 +1,3 @@
-import { FormikConfig } from 'formik'
+import { FormikConfig } from "formik";
 
-export type FormikSubmit<T> = FormikConfig<T>['onSubmit']
+export type FormikSubmit<T> = FormikConfig<T>["onSubmit"];

@@ -1,3 +1,3 @@
 export enum PersistData {
-  TOKEN = "TOKEN"
+  TOKEN = "TOKEN",
 }

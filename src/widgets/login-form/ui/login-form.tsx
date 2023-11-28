@@ -1,39 +1,39 @@
-import { Formik } from "formik"
-import { LoginPayload, LoginSuccess, loginSchema } from "../lib"
-import { FormikSubmit } from "shared/types"
-import { LoginFormView } from "./login-form-view"
-import { useLoginMutation } from "shared/api"
-import { AppLinks, PersistData } from "shared/enums"
-import { useNavigate } from "react-router-dom"
-import { useTranslation } from "react-i18next"
+import { Formik } from "formik";
+import { LoginPayload, LoginSuccess, loginSchema } from "../lib";
+import { FormikSubmit } from "shared/types";
+import { LoginFormView } from "./login-form-view";
+import { useLoginMutation } from "shared/api";
+import { AppLinks, PersistData } from "shared/enums";
+import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const initialValues: LoginPayload = {
   email: "",
-  password: ""
-}
+  password: "",
+};
 
 export const LoginForm = () => {
-  const navigate = useNavigate()
-  const { mutateAsync: login } = useLoginMutation()
-  const { t } = useTranslation()
+  const navigate = useNavigate();
+  const { mutateAsync: login } = useLoginMutation();
+  const { t } = useTranslation();
 
   const onSubmit: FormikSubmit<LoginPayload> = (values, helpers) => {
     login(values, {
       onSuccess: (data: LoginSuccess) => {
-        localStorage.setItem(PersistData.TOKEN, data.token)
-        navigate(AppLinks.USERS, { replace: true })
+        localStorage.setItem(PersistData.TOKEN, data.token);
+        navigate(AppLinks.USERS, { replace: true });
       },
       onSettled: () => {
-        helpers.setSubmitting(false)
+        helpers.setSubmitting(false);
       },
       onError: () => {
-        helpers.setFieldTouched('email', true, false)
-        helpers.setFieldTouched('password', true, false)
-        helpers.setFieldError('email', t('login.invalidEmailOrPassword'))
-        helpers.setFieldError('password', t('login.invalidEmailOrPassword'))
-      }
-    })
-  }
+        helpers.setFieldTouched("email", true, false);
+        helpers.setFieldTouched("password", true, false);
+        helpers.setFieldError("email", t("login.invalidEmailOrPassword"));
+        helpers.setFieldError("password", t("login.invalidEmailOrPassword"));
+      },
+    });
+  };
 
   return (
     <Formik
@@ -42,5 +42,5 @@ export const LoginForm = () => {
       validationSchema={loginSchema}
       component={LoginFormView}
     />
-  )
-}
+  );
+};

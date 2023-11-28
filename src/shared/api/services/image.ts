@@ -1,6 +1,6 @@
-import { Path } from 'shared/enums'
-import { BaseService } from './base'
-import { Image } from 'entities/image'
+import { Path } from "shared/enums";
+import { BaseService } from "./base";
+import { Image } from "entities/image";
 
 export class ImageService extends BaseService {
   public static async upload(payload: File) {
@@ -10,21 +10,21 @@ export class ImageService extends BaseService {
         file: payload,
         isJson: false,
       },
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'multipart/form-data',
+        "Content-Type": "multipart/form-data",
       },
-    })
+    });
 
-    return data
+    return data;
   }
 
   public static async delete(id: string) {
     const { data } = await this.fetch({
       url: `${Path.REMOVE_IMAGE}${id}`,
-      method: 'DELETE'
-    })
+      method: "DELETE",
+    });
 
-    return data
+    return data;
   }
 }

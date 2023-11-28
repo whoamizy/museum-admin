@@ -1,50 +1,50 @@
-import { Path } from 'shared/enums'
-import { BaseService } from './base'
-import { Collection, CollectionPayload } from 'entities/collection'
+import { Path } from "shared/enums";
+import { BaseService } from "./base";
+import { Collection, CollectionPayload } from "entities/collection";
 
 export class CollectionsService extends BaseService {
   public static async getAll() {
     const { data } = await this.fetch<Collection[]>({
       url: Path.COLLECTIONS,
-    })
+    });
 
-    return data
+    return data;
   }
 
   public static async getOne(id: string) {
     const { data } = await this.fetch<Collection>({
       url: `${Path.COLLECTIONS}/${id}`,
-    })
+    });
 
-    return data
+    return data;
   }
 
   public static async delete(id: string) {
     const { data } = await this.fetch<Collection>({
       url: `${Path.COLLECTIONS}/${id}`,
-      method: 'DELETE',
-    })
+      method: "DELETE",
+    });
 
-    return data
+    return data;
   }
 
   public static async create(payload: CollectionPayload) {
     const { data } = await this.fetch<Collection>({
       url: Path.COLLECTIONS,
       data: payload,
-      method: 'POST',
-    })
+      method: "POST",
+    });
 
-    return data
+    return data;
   }
 
   public static async update(id: string, payload: CollectionPayload) {
     const { data } = await this.fetch<Collection>({
       url: `${Path.COLLECTIONS}/${id}`,
       data: payload,
-      method: 'PATCH',
-    })
+      method: "PATCH",
+    });
 
-    return data
+    return data;
   }
 }

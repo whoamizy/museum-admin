@@ -54,7 +54,7 @@ export const EditExhibitionView = ({
   const deleteHandler = async (imageId: string) => {
     setFieldValue(
       "images",
-      images.filter((id) => imageId !== id)
+      images.filter((id) => imageId !== id),
     );
     await deleteImage(imageId, {
       onSuccess: () => {},

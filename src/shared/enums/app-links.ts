@@ -12,5 +12,5 @@ export enum AppLinks {
   EXHIBITIONS = "/exhibitions",
   ADD_EXHIBITIONS = "/exhibitions/new",
   EDIT_EXHIBITIONS = "/exhibitions/:id",
-  TICKETS = "/tickets"
+  TICKETS = "/tickets",
 }

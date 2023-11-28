@@ -29,7 +29,7 @@ export const TicketsPage = () => {
   useEffect(() => {
     if (!tickets) return;
     setFilteredTickets(
-      filterTickets(tickets, selectedExhibition, selectedDate)
+      filterTickets(tickets, selectedExhibition, selectedDate),
     );
   }, [selectedDate, selectedExhibition, tickets]);
 

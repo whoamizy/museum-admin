@@ -1,5 +1,4 @@
-import { IconProps } from "./types"
-
+import { IconProps } from "./types";
 
 export const PlusIcon = (props: IconProps) => {
   return (
@@ -18,5 +17,5 @@ export const PlusIcon = (props: IconProps) => {
         d="M4 12h16m-8 8V4"
       />
     </svg>
-  )
-}
+  );
+};
