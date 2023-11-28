@@ -9,6 +9,7 @@ import { TicketsItem } from "./tickets-item";
 import { useEffect, useState } from "react";
 import { Exhibition } from "entities/exhibition";
 import { filterTickets } from "../utils";
+import format from "date-fns/format";
 
 export const TicketsPage = () => {
   const { t } = useTranslation();
@@ -17,7 +18,9 @@ export const TicketsPage = () => {
 
   const { data: exhibitions } = useGetAllExhibitions();
 
-  const dates = [...new Set(tickets?.map((t) => t.date))];
+  const dates = [
+    ...new Set(tickets?.map((t) => format(new Date(t.date), "dd.MM.yyyy"))),
+  ];
 
   const [selectedExhibition, setSelectedExhibition] =
     useState<Exhibition | null>(null);
