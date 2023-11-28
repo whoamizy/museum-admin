@@ -1,79 +1,75 @@
-import { useTranslation } from "react-i18next"
-import { useGetAllExhibitions, useGetAllTickets } from "shared/api"
-import { ContentPlate, PageWrapper } from "shared/components"
-import styles from './styles.module.scss'
-import { FilterTicketsBar } from "widgets/filter-tickets-bar"
-import { ContentLoader } from "widgets/content-loader"
-import { NotFound } from "widgets/not-found"
-import { TicketsItem } from "./tickets-item"
-import { useCallback, useEffect, useState } from "react"
-import { Exhibition } from "entities/exhibition"
+import { useTranslation } from "react-i18next";
+import { useGetAllExhibitions, useGetAllTickets } from "shared/api";
+import { ContentPlate, PageWrapper } from "shared/components";
+import styles from "./styles.module.scss";
+import { FilterTicketsBar } from "widgets/filter-tickets-bar";
+import { ContentLoader } from "widgets/content-loader";
+import { NotFound } from "widgets/not-found";
+import { TicketsItem } from "./tickets-item";
+import { useEffect, useState } from "react";
+import { Exhibition } from "entities/exhibition";
+import { filterTickets } from "../utils";
 
 export const TicketsPage = () => {
-  const { t } = useTranslation()
-  const { data: tickets, isLoading } = useGetAllTickets()
-  const [filteredTickets, setFilteredTickets] = useState(tickets)
+  const { t } = useTranslation();
+  const { data: tickets, isLoading } = useGetAllTickets();
+  const [filteredTickets, setFilteredTickets] = useState(tickets);
 
-  const { data: exhibitions } = useGetAllExhibitions()
+  const { data: exhibitions } = useGetAllExhibitions();
 
-  const [selectedExhibition, setSelectedExhibition] = useState<Exhibition | null>(null);
+  const dates = [...new Set(tickets?.map((t) => t.date))];
 
-  const filterVariantsHandler = useCallback(() => {
-    if (!tickets) return
-
-    if (selectedExhibition) {
-      setFilteredTickets(tickets.filter(({ exhibition }) =>
-        exhibition.name === selectedExhibition?.name
-      ))
-    } else {
-      setFilteredTickets(tickets)
-    }
-  }, [selectedExhibition, tickets])
+  const [selectedExhibition, setSelectedExhibition] =
+    useState<Exhibition | null>(null);
+  const [selectedDate, setSelectedDate] = useState<string | null>(null);
 
   useEffect(() => {
-    filterVariantsHandler()
-  }, [filterVariantsHandler])
+    if (!tickets) return;
+    setFilteredTickets(
+      filterTickets(tickets, selectedExhibition, selectedDate)
+    );
+  }, [selectedDate, selectedExhibition, tickets]);
 
   return (
     <PageWrapper>
-      {!!exhibitions &&
+      {!!exhibitions && (
         <FilterTicketsBar
           exhibitions={exhibitions}
           selectedExhibition={selectedExhibition}
           setSelectedExhibition={setSelectedExhibition}
+          dates={dates}
+          selectedDate={selectedDate}
+          setSelectedDate={setSelectedDate}
         />
-      }
+      )}
       <div className={styles.infoLine}>
-        <h1 className={styles.title}>{t('tickets.title')}</h1>
-        <div className={styles.title}>{filteredTickets && t('tickets.length', {value: filteredTickets.length})}</div>
+        <h1 className={styles.title}>{t("tickets.title")}</h1>
+        <div className={styles.title}>
+          {filteredTickets &&
+            t("tickets.length", { value: filteredTickets.length })}
+        </div>
       </div>
       <div className={styles.topLine}>
-        <div className={styles.topLineCategory}>
-          {t('tickets.exhibition')}
-        </div>
-        <div className={styles.topLineCategory}>
-          {t('tickets.user')}
-        </div>
-        <div className={styles.topLineCategory}>
-          {t('tickets.dateAndTime')}
-        </div>
+        <div className={styles.topLineCategory}>{t("tickets.exhibition")}</div>
+        <div className={styles.topLineCategory}>{t("tickets.user")}</div>
+        <div className={styles.topLineCategory}>{t("tickets.dateAndTime")}</div>
         <div className={styles.topLineCategory}></div>
       </div>
       <ContentPlate>
         {isLoading && <ContentLoader />}
-        {!!filteredTickets &&
+        {!!filteredTickets && (
           <>
             {filteredTickets.length === 0 && <NotFound />}
             <ul>
-              {filteredTickets.map((ticket) =>
+              {filteredTickets.map((ticket) => (
                 <li key={ticket._id}>
                   <TicketsItem {...ticket} />
                 </li>
-              )}
+              ))}
             </ul>
           </>
-        }
+        )}
       </ContentPlate>
     </PageWrapper>
-  )
-}
+  );
+};

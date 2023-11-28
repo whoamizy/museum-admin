@@ -4,24 +4,24 @@ export const ru = {
     greeting: "Здравствуйте, {{name}}!",
     notFound: "Ничего не найдено",
     save: "Сохранить",
-    undefined: "Неизвестно"
+    undefined: "Неизвестно",
   },
   pages: {
     users: "Пользователи",
     news: "Новости",
     collections: "Коллекции",
     exhibitions: "Выставки",
-    tickets: "Билеты"
+    tickets: "Билеты",
   },
   server: {
-    error: "Что-то пошло не так!"
+    error: "Что-то пошло не так!",
   },
   form: {
     error: "Ошибка",
     pickImage: {
       description: "Перетащите изображение сюда или загрузите по кнопке",
       button: "Выберите изображение",
-    }
+    },
   },
   login: {
     title: "Вход",
@@ -29,7 +29,7 @@ export const ru = {
     emailPlaceholder: "Введите e-mail",
     password: "Пароль",
     passwordPlaceholder: "Введите пароль",
-    invalidEmailOrPassword: "Неверный email и/или пароль"
+    invalidEmailOrPassword: "Неверный email и/или пароль",
   },
   users: {
     search: "Поиск по пользователям",
@@ -37,7 +37,7 @@ export const ru = {
     name: "Имя",
     email: "E-mail",
     successDelete: "Пользователь успешно удален",
-    errorDelete: "Не удалось удалить пользователя"
+    errorDelete: "Не удалось удалить пользователя",
   },
   news: {
     search: "Поиск по новостям",
@@ -56,9 +56,10 @@ export const ru = {
       titlePlaceholder: "Введите заголовок",
       link: "Ссылка на статью",
       linkPlaceholder: "Вставьте ссылку на статью",
-      pickImageDescription: "Перетащите изображение сюда или загрузите по кнопке",
+      pickImageDescription:
+        "Перетащите изображение сюда или загрузите по кнопке",
       pickImage: "Выберите изображение",
-    }
+    },
   },
   exhibitions: {
     search: "Поиск по выставкам",
@@ -84,9 +85,10 @@ export const ru = {
       addressPlaceholder: "Введите адрес",
       price: "Цена билета (₽)",
       pricePlaceholder: "Введите цену за 1 билет",
-      pickImageDescription: "Перетащите изображение сюда или загрузите по кнопке (Максимум 3)",
+      pickImageDescription:
+        "Перетащите изображение сюда или загрузите по кнопке (Максимум 3)",
       pickImage: "Выберите изображение",
-    }
+    },
   },
   tickets: {
     title: "Билеты",
@@ -97,7 +99,8 @@ export const ru = {
     dateAndTimeValues: "{{date}} в {{time}}",
     filters: {
       exhibition: "Выберите выставку",
-      reset: "Сбросить"
+      date: "Выберите дату",
+      reset: "Сбросить",
     },
     successDelete: "Билет успешно удален",
     errorDelete: "Не удалось удалить билет",
@@ -135,8 +138,8 @@ export const ru = {
         authorPlaceholder: "Введите автора",
         year: "Год создания",
         yearPlaceholder: "Введите год создания",
-      }
-    }
+      },
+    },
   },
   errors: {
     required: "Обязательное поле",
@@ -156,6 +159,6 @@ export const ru = {
       invalidAddress: "Неккоректный адрес",
     },
     uploadImage: "Не удалось загрузить изображение",
-    deleteImage: "Не удалось удалить изображение"
-  }
-}
+    deleteImage: "Не удалось удалить изображение",
+  },
+};
